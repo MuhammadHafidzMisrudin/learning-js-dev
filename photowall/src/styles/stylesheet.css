@@ -19,15 +19,15 @@ h1 {
 
 .photo-grid {
   max-width: 1000px;
-  margin: 0px auto;
-  display: flex;
-  flex-wrap: wrap;
+  margin: 0px auto; /* Centering the Component photo figures */
+  display: flex; /* Diplay all element as flex items equal shape */
+  flex-wrap: wrap; /* All of the flex items inside of the container can break lines if needed */
 }
 
 .figure {
   flex-basis: calc(33.333% - 4rem);
   border: 1px solid #d3d3d3;
   padding: 2rem;
-  flex-grow: 1;
+  flex-grow: 1; /* All elements on the row will share the same width and equal grid space, and extra whole space for other container */
   margin: 0 2rem 2rem 2rem;
 }
