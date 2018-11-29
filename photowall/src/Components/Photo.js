@@ -11,7 +11,10 @@ class Photo extends Component {
         <figcaption>
           <p>{post.description}</p>
         </figcaption>
-        <button>Remove</button>
+
+        <div className="button-container">
+          <button className="remove-button">Remove</button>
+        </div>
       </figure>);
   }
 }
