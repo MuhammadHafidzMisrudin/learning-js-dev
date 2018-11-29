@@ -7,7 +7,11 @@ class Photo extends Component {
 
     return (
       <figure className="figure">
-        {/* <img src={post.imageLink}></img> */}
+        <img className="photo" src={post.imageLink} alt={post.description}></img>
+        <figcaption>
+          <p>{post.description}</p>
+        </figcaption>
+        <button>Remove</button>
       </figure>);
   }
 }

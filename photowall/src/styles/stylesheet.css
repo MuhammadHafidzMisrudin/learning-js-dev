@@ -31,3 +31,8 @@ h1 {
   flex-grow: 1; /* All elements on the row will share the same width and equal grid space, and extra whole space for other container */
   margin: 0 2rem 2rem 2rem;
 }
+
+.photo {
+  width: calc(100% + 4rem);
+  margin: -2rem 0rem 0rem -2rem;
+}
