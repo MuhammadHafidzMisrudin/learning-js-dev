@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 // Create a stateless function component of Photo.
 function Photo(props) {
-  
+
   // Create post variable and set as Component instance that is passed in as props.
   const post = props.post;
   return (
