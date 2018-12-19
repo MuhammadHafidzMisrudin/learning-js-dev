@@ -41,6 +41,13 @@ class Main extends Component {
         imageLink: "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2017/08/24/104670887-VacationExplainsTHUMBWEB.1910x1000.jpg"
       }]
     }
+
+    this.removePhoto = this.removePhoto.bind(this);
+  }
+
+  // Add a function to remove Photo.
+  removePhoto(postRemoved) {
+    console.log(postRemoved.description);
   }
 
   // Render the Component instances of Title and PhotoWall.
@@ -48,7 +55,7 @@ class Main extends Component {
     return (
       <div>
         <Title title={"PhotoWall"}/>
-        <PhotoWall posts={this.state.posts}/>
+        <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto}/>
       </div>
     );
   }

@@ -8,7 +8,7 @@ function PhotoWall(props) {
     <div className="photo-grid">
       {/* PhotoWall Component iterates through an array of Objects and it generates photos of Photo Component
       or Photo Component instances with passing in props. Each Photo instance has a <figure> element. */}
-      {props.posts.map((post, index) => <Photo key={index} post={post}/>)}
+      {props.posts.map((post, index) => <Photo key={index} post={post} onRemovePhoto={props.onRemovePhoto}/>)}
     </div>);
 }
 
