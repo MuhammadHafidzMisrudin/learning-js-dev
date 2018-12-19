@@ -21,7 +21,7 @@ import Title from './Title';
 
 class Main extends Component {
 
-  // Initialise a constructor to initialise initial state.
+  // Initialise a constructor to initialise initial state. (of posts list).
   constructor() {
     super();
     this.state = {
@@ -42,15 +42,26 @@ class Main extends Component {
       }]
     }
 
+    // Bind a removePhoto() in Constructor.
     this.removePhoto = this.removePhoto.bind(this);
   }
 
   // Add a function to remove Photo.
   removePhoto(postRemoved) {
-    console.log(postRemoved.description);
+
+    // Debug current state of single post.
+    console.log(postRemoved.description + " post gets removed!");
+
+    // Update the state of posts (Component).
+    // Filter out the removed post from the current state of array (posts)
+    // Return the updated state of new posts list.
+    this.setState((state) => ({
+      posts: state.posts.filter(post => post !== postRemoved)
+    }));
   }
 
   // Render the Component instances of Title and PhotoWall.
+  // Pass posts list and removePhoto() as props to Photowall component.
   render() {
     return (
       <div>
