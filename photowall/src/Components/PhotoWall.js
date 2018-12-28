@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-
 import Photo from './Photo';
+import PropTypes from 'prop-types';
 
 // Create a stateless function component of PhotoWall.
 function PhotoWall(props) {
