@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 // Create a stateless function component of Photo.
 function Photo(props) {
@@ -18,6 +19,14 @@ function Photo(props) {
         <button className="remove-button" onClick={() => {props.onRemovePhoto(post)}}>Remove</button>
       </div>
     </figure>);
+}
+
+// Specify the PropTypes for Photo component. Allow to specify the required types that must be passed in.
+// single post must be an object when passed in as props in instance component.
+// onRemovePhoto must a function when passed in as props in instance component.
+Photo.propTypes = {
+  post: PropTypes.object.isRequired,
+  onRemovePhoto: PropTypes.func.isRequired
 }
 
 // class Photo extends Component {
