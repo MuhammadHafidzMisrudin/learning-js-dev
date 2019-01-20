@@ -6,7 +6,10 @@ import PropTypes from 'prop-types';
 function PhotoWall(props) {
   return (
     <div>
-      <button className="add-icon" onClick={props.onNavigate}>+</button>
+
+      {/* Use hyperlink tag for addphoto button. */}
+      <a className="add-icon" href="#AddPhoto" onClick={props.onNavigate}></a>
+      {/* <button className="add-icon" onClick={props.onNavigate}>+</button> */}
 
       <div className="photo-grid">
         {/* PhotoWall Component iterates through an array of Objects and it generates photos of Photo Component

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+// Create a class component of AddPhoto.
+// For AddPhoto screen.
 class AddPhoto extends Component {
     render() {
         return (
