@@ -44,8 +44,9 @@ class Main extends Component {
       screen: "photos" // Flag to display either photowall screen or addphoto screen.   
     }
 
-    // Bind a removePhoto() in Constructor.
+    // Bind additional methods in Constructor.
     this.removePhoto = this.removePhoto.bind(this);
+    this.navigate = this.navigate.bind(this);
     console.log('constructor');
   }
 
@@ -87,6 +88,13 @@ class Main extends Component {
     }));
   }
 
+  // Add a function to navigate to the addphoto screen.
+  navigate() {
+    this.setState({
+      screen: "addPhoto"
+    });
+  }
+
   // Render the Component instances of Title and PhotoWall.
   // Pass posts list and removePhoto() as props to Photowall component.
   render() {
@@ -99,7 +107,7 @@ class Main extends Component {
           this.state.screen === "photos" && (
             <div>
               <Title title={"PhotoWall"} />
-              <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto} />
+              <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto} onNavigate={this.navigate} />
             </div>
           )
         }
