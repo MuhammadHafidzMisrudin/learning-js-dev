@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import Photo from './Photo';
 import PropTypes from 'prop-types';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+
 
 // Create a stateless function component of PhotoWall.
 function PhotoWall(props) {
   return (
     <div>
 
+      {/* Add button link using Link component to change the path of url for addphoto. */}
+      <Link className="add-icon" to="/AddPhoto"></Link>
       {/* Use hyperlink tag for addphoto button. */}
-      <a className="add-icon" href="#AddPhoto" onClick={props.onNavigate}></a>
-      {/* <button className="add-icon" onClick={props.onNavigate}>+</button> */}
+      {/* <a className="add-icon" href="#AddPhoto" onClick={props.onNavigate}></a> */}
+      {/* <button className="add-icon" onClick={() => {props.onNavigate()}}>+</button> */}
 
       <div className="photo-grid">
         {/* PhotoWall Component iterates through an array of Objects and it generates photos of Photo Component

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-
 import PhotoWall from './PhotoWall';
 import Title from './Title';
 import AddPhoto from './AddPhoto';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+
 
 // const posts = [{
 //   id: "0",
@@ -99,10 +100,30 @@ class Main extends Component {
   // Pass posts list and removePhoto() as props to Photowall component.
   render() {
     console.log('render');
+    console.log(this.state.screen);
     return (
-      <div>
+      <div>       
 
-        {
+        {/* 
+            Instead of using state for changes of UI when rendered, use the React route to change the UI that
+            matches the browser url.
+
+            Add Route component that passes in render as props to invoke specific UI components.
+        */}
+        <Route exact path="/" render={() => (
+          <div>
+            <Title title={"PhotoWall"} />
+            <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto} onNavigate={this.navigate} />
+          </div>        
+        )}/>
+
+        {/* 
+            Multiple UI components must enclosed by <div> in render method properties,
+            otherwise simply use the component property for single UI component.
+        */}
+        <Route exact path="/AddPhoto" component={AddPhoto}/>
+
+        {/* {
           // If current state of screen equals to photos, it will display the photowall screen.
           this.state.screen === "photos" && (
             <div>
@@ -110,16 +131,16 @@ class Main extends Component {
               <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto} onNavigate={this.navigate} />
             </div>
           )
-        }
+        } */}
 
-        {
+        {/* {
           // If current state of screen equals to addphoto, it will display the addphoto screen.
           this.state.screen === "addPhoto" && (
             <div>
               <AddPhoto />
             </div>
           )
-        }
+        } */}
 
       </div>
     );

@@ -1,9 +1,8 @@
-import './styles/stylesheet.css';
-
-import React, {Component} from 'react';
-
-import Main from './Components/Main';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Main from './Components/Main';
+import './styles/stylesheet.css';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 // const tasks = ['Call Inma', 'Meet Inma', 'Give Inma A Kiss'];
 
@@ -61,4 +60,5 @@ import ReactDOM from 'react-dom';
 // ReactDOM.render(element, document.getElementById('root'));
 
 // Render an instance of Main Component that renders all subcomponents.
-ReactDOM.render(<Main/>, document.getElementById('root'));
+// Keep track of the changes in the urls in the browser.
+ReactDOM.render(<BrowserRouter><Main /></BrowserRouter>, document.getElementById('root'));

@@ -16,7 +16,7 @@ function Photo(props) {
       <div className="button-container">
 
         {/* Invoke removePhoto() with param that passed in as prop which triggered by onClick event handler */}
-        <button className="remove-button" onClick={() => { props.onRemovePhoto(post) }}>Remove</button>
+        <button className="remove-button" onClick={() => {props.onRemovePhoto(post)}}>Remove</button>
       </div>
     </figure>);
 }
