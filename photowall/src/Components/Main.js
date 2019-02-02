@@ -118,7 +118,7 @@ class Main extends Component {
         )}/>
 
         {/* 
-            Multiple UI components must enclosed by <div> in render method properties,
+            Multiple UI components must be enclosed by <div> in render method properties,
             otherwise simply use the component property for single UI component.
         */}
         <Route exact path="/AddPhoto" component={AddPhoto}/>
