@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 // Create a stateless function component of Photo.
+// Stateless function component only returns render method which does not contain component lifecycles.
 function Photo(props) {
 
   // Create post variable and set as Component instance that is passed in as props.

@@ -11,6 +11,26 @@ class AddPhoto extends Component {
     
     handleSubmitHandler(event) {
         event.preventDefault();
+        console.log(event.target.elements.link.value);
+        console.log(event.target.elements.description.value);
+
+        // Initialise variables to store input values from the form.
+        const imageLink = event.target.elements.link.value;
+        const description = event.target.elements.description.value;
+
+        // Create a new post object.
+        const newPost = {
+            id: Number(new Date()),
+            description: description,
+            imageLink: imageLink
+        }
+
+        // If input link and description is not null.
+        if (imageLink && description) {
+            
+            // Pass newPost object into onAddPhoto prop.
+            this.props.onAddPhoto(newPost); 
+        }
     }
 
     render() {
@@ -20,8 +40,8 @@ class AddPhoto extends Component {
                 <h1>PhotoWall</h1>
                 <div className="form"> 
                     <form onSubmit={this.handleSubmitHandler}>
-                        <input type="text" placeholder="Link"></input>
-                        <input type="text" placeholder="Description"></input>
+                        <input type="text" placeholder="Link" name="link"></input>
+                        <input type="text" placeholder="Description" name="description"></input>
                         <button>POST</button>
                     </form>
                 </div>

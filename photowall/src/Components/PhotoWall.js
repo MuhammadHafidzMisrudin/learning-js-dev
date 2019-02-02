@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 
 // Create a stateless function component of PhotoWall.
+// Stateless function component only returns render method which does not contain component lifecycles.
 function PhotoWall(props) {
   return (
     <div>
@@ -16,9 +17,15 @@ function PhotoWall(props) {
       {/* <button className="add-icon" onClick={() => {props.onNavigate()}}>+</button> */}
 
       <div className="photo-grid">
-        {/* PhotoWall Component iterates through an array of Objects and it generates photos of Photo Component
-      or Photo Component instances with passing in props. Each Photo instance has a <figure> element. */}
-        {props.posts.map((post, index) => <Photo key={index} post={post} onRemovePhoto={props.onRemovePhoto} />)}
+        {/* 
+            PhotoWall Component iterates through an array of Objects and it generates photos of Photo Component
+            or Photo Component instances with passing in props. Each Photo instance has a <figure> element.
+            
+            Update: sort all of the post in descending order based on which one is more recent with its id.
+        */}
+        {props.posts
+          .sort((x, y) => y.id - x.id)
+          .map((post, index) => <Photo key={index} post={post} onRemovePhoto={props.onRemovePhoto} />)}
       </div>
 
     </div>);

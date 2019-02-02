@@ -67,7 +67,8 @@ h1 {
 }
 
 .form {
-  background: rgb(106, 205, 223);
+  /* background: rgb(106, 205, 223); */
+  background: white;
   margin: 0 auto; /* Center the form and inputs */
   max-width: 360px;
   padding: 45px; /* Center the input box */
