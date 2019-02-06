@@ -3,7 +3,6 @@ import Photo from './Photo';
 import PropTypes from 'prop-types';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
-
 // Create a stateless function component of PhotoWall.
 // Stateless function component only returns render method which does not contain component lifecycles.
 function PhotoWall(props) {

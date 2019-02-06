@@ -4,6 +4,7 @@ import Main from './Components/Main';
 import './styles/stylesheet.css';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import { createStore } from 'redux';
+import rootReducer from './redux/reducer';
 
 // const tasks = ['Call Inma', 'Meet Inma', 'Give Inma A Kiss'];
 
@@ -61,7 +62,7 @@ import { createStore } from 'redux';
 // ReactDOM.render(element, document.getElementById('root'));
 
 // Create and initialise Redux Store.
-const store = createStore();
+const store = createStore(rootReducer);
 
 // Render an instance of Main Component that renders all subcomponents.
 // Keep track of the changes in the urls in the browser.
