@@ -5,6 +5,7 @@ import './styles/stylesheet.css';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import { createStore } from 'redux';
 import rootReducer from './redux/reducer';
+import { Provider } from 'react-redux';
 
 // const tasks = ['Call Inma', 'Meet Inma', 'Give Inma A Kiss'];
 
@@ -65,5 +66,6 @@ import rootReducer from './redux/reducer';
 const store = createStore(rootReducer);
 
 // Render an instance of Main Component that renders all subcomponents.
-// Keep track of the changes in the urls in the browser.
-ReactDOM.render(<BrowserRouter><Main /></BrowserRouter>, document.getElementById('root'));
+// Add <BrowserRouter> to keep track of the changes in the urls in the browser.
+// Add <Provider> and wrap everything up inside of Provider.
+ReactDOM.render(<Provider store={store}><BrowserRouter><Main /></BrowserRouter></Provider>, document.getElementById('root'));
