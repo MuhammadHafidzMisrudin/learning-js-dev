@@ -31,7 +31,7 @@ function PhotoWall(props) {
 }
 
 // Specify the PropTypes for Photowall component. Allow to specify the required types that must be passed in.
-// posts must be array when passed in as props in instance component.
+// Object posts must be array when passed in as props in instance component.
 // onRemovePhoto must a function when passed in as props in instance component.
 PhotoWall.propTypes = {
   posts: PropTypes.array.isRequired,

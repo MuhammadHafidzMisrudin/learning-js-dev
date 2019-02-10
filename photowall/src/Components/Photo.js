@@ -23,7 +23,7 @@ function Photo(props) {
 }
 
 // Specify the PropTypes for Photo component. Allow to specify the required types that must be passed in.
-// single post must be an object when passed in as props in instance component.
+// Single post must be an object when passed in as props in instance component.
 // onRemovePhoto must a function when passed in as props in instance component.
 Photo.propTypes = {
   post: PropTypes.object.isRequired,

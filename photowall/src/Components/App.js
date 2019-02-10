@@ -2,7 +2,7 @@ import Main from './Main';
 import { connect } from 'react-redux';
 
 /*
-    App component connects the store to Main component.
+  App component connects the store to Main component.
 */
 
 function mapStateToProps(state) {
