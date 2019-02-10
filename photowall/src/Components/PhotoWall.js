@@ -35,7 +35,7 @@ function PhotoWall(props) {
 // onRemovePhoto must a function when passed in as props in instance component.
 PhotoWall.propTypes = {
   posts: PropTypes.array.isRequired,
-  onRemovePhoto: PropTypes.func.isRequired
+  // onRemovePhoto: PropTypes.func.isRequired
 }
 
 // class PhotoWall extends Component {

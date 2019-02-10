@@ -27,7 +27,7 @@ function Photo(props) {
 // onRemovePhoto must a function when passed in as props in instance component.
 Photo.propTypes = {
   post: PropTypes.object.isRequired,
-  onRemovePhoto: PropTypes.func.isRequired
+  // onRemovePhoto: PropTypes.func.isRequired
 }
 
 // class Photo extends Component {
