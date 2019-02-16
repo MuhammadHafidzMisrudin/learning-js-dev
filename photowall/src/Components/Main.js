@@ -90,6 +90,7 @@ class Main extends Component {
   // Pass posts list and removePhoto() as props to Photowall component.
   render() {
     console.log('render');
+    console.log(this.props);
     console.log(this.props.posts);
     return (
       <div>
