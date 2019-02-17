@@ -21,6 +21,8 @@ function PhotoWall(props) {
             or Photo Component instances with passing in props. Each Photo instance has a <figure> element.
             
             Update: sort all of the post in descending order based on which one is more recent with its id.
+
+            Pass all props down to each Photo component to access all props and the Redux action methods.
         */}
         {props.posts
           .sort((x, y) => y.id - x.id)
