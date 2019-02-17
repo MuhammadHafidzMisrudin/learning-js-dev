@@ -3,6 +3,7 @@ import PhotoWall from './PhotoWall';
 import Title from './Title';
 import AddPhoto from './AddPhoto';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { removePost } from '../redux/actions';
 
 // Main component as a top level component to render its subcomponents.
 class Main extends Component {
@@ -39,6 +40,7 @@ class Main extends Component {
   // Hint: lifecycle only for fetching data from database.
   componentDidMount() {
     console.log('componentDidMount');
+    this.props.removePost(1);
   }
 
   // Get invoked before render method.
@@ -79,13 +81,6 @@ class Main extends Component {
   //   }))
   // } 
 
-  // Add a function to navigate to the addphoto screen.
-  // navigate() {
-  //   this.setState({
-  //     screen: "addPhoto"
-  //   });
-  // }
-
   // Render the Component instances of Title and PhotoWall.
   // Pass posts list and removePhoto() as props to Photowall component.
   render() {
@@ -100,11 +95,12 @@ class Main extends Component {
             matches the browser url.
 
             Add Route component that passes in render as props to invoke specific UI components.
+            Spread operator (i.e, {...this.props}) equivalent to <PhotoWall posts=this.props.posts remove=this.props.removePost/>
         */}
         <Route exact path="/" render={() => (
           <div>
             <Title title={"PhotoWall"} />
-            <PhotoWall posts={this.props.posts} />
+            <PhotoWall {...this.props} />
             {/* <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto} onNavigate={this.navigate} /> */}
           </div>
         )} />
@@ -121,27 +117,6 @@ class Main extends Component {
             history.push("/"); // This prop to manage the navigation stack and go back the previous (main) page.
           }}/>
         )} /> */}
-
-
-
-        {/* {
-          // If current state of screen equals to photos, it will display the photowall screen.
-          this.state.screen === "photos" && (
-            <div>
-              <Title title={"PhotoWall"} />
-              <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto} onNavigate={this.navigate} />
-            </div>
-          )
-        } */}
-
-        {/* {
-          // If current state of screen equals to addphoto, it will display the addphoto screen.
-          this.state.screen === "addPhoto" && (
-            <div>
-              <AddPhoto />
-            </div>
-          )
-        } */}
 
       </div>
     );

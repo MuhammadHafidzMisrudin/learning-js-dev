@@ -2,7 +2,7 @@
 
 // Add action remove function.
 // Return a js object that describes the event that should update the application state.
-function removePost(index) {
+export function removePost(index) {
     return {
         type: 'REMOVE_POST',
         index: index
