@@ -16,9 +16,9 @@ function Photo(props) {
 
       <div className="button-container">
 
-        {/* Emit removePost() action with param that passed in as prop which triggered by onClick event handler. 
+        {/* Emit removePost() action with index param that passed in as prop which triggered by onClick event handler. 
             Then remove action goes to Redux reducer. */}
-        <button className="remove-button" onClick={() => props.removePost(1)}>Remove</button>
+        <button className="remove-button" onClick={() => props.removePost(props.index)}>Remove</button>
       </div>
     </figure>);
 }

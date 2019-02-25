@@ -14,7 +14,7 @@ function mapStateToProps(state) {
 
 /* 
   Function to provide a shorthand for removePost action method inside of Main component.
-  Example: Change from "this.props.dispatch(removePost(1))" to "this.props.removePost(1)".
+  Example: Change from "this.props.dispatch(removePost(index))" to "this.props.removePost(index)".
 */
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({removePost}, dispatch);
