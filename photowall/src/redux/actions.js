@@ -5,8 +5,15 @@
 export function removePost(index) {
     return {
         type: 'REMOVE_POST',
-        index: index
+        index // index: index
     }
 }
 
 // Add action adding post function.
+// Return a js object that describes the event that should update the application state.
+export function addPost(post) {
+    return {
+        type: 'ADD_POST',
+        post // post: post
+    }
+}

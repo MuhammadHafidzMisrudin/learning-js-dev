@@ -101,22 +101,20 @@ class Main extends Component {
           <div>
             <Title title={"PhotoWall"} />
             <PhotoWall {...this.props} />
-            {/* <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto} onNavigate={this.navigate} /> */}
           </div>
         )} />
 
         {/* 
-            Multiple UI components must be enclosed by <div> in render method properties,
+            Multiple UI components must be enclosed by <div> in render method property,
             otherwise simply use the component property for single UI component.
+            e.g: <Route exact path="/AddPhoto" component={AddPhoto}/>
+
+            Add Route component that passes in render as props to invoke specific UI components.
+            Spread operator (i.e, {...this.props}) is passed in as AddPhoto props to have access to Redux store and actions.
         */}
-        {/* <Route exact path="/AddPhoto" component={AddPhoto}/> */}
-        {/* <Route exact path="/AddPhoto" render={({history}) => (
-          <AddPhoto onAddPhoto={(addedPost) => {
-            console.log(addedPost); // Debug log.
-            this.addNewPhoto(addedPost); // Invoke addNewPhoto() to update the state of component posts.
-            history.push("/"); // This prop to manage the navigation stack and go back the previous (main) page.
-          }}/>
-        )} /> */}
+        <Route exact path="/AddPhoto" render={({ history }) => (
+          <AddPhoto {...this.props} onHistory={history} />
+        )} />
 
       </div>
     );

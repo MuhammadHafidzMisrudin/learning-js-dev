@@ -8,7 +8,7 @@ class AddPhoto extends Component {
         super();
         this.handleSubmitHandler = this.handleSubmitHandler.bind(this);
     }
-    
+
     handleSubmitHandler(event) {
         event.preventDefault();
         console.log(event.target.elements.link.value);
@@ -27,9 +27,14 @@ class AddPhoto extends Component {
 
         // If input link and description is not null.
         if (imageLink && description) {
-            
+
             // Pass newPost object into onAddPhoto prop.
-            this.props.onAddPhoto(newPost); 
+            // this.props.onAddPhoto(newPost); 
+
+            // Emit the Redux action addPost method.
+            // Upon emitting this action, it will go to the reducer.
+            this.props.addPost(newPost);
+            this.props.onHistory.push('/'); // Passed as props to navigate back to the Main page after adding new post.
         }
     }
 
@@ -38,7 +43,7 @@ class AddPhoto extends Component {
 
             <div>
                 <h1>PhotoWall</h1>
-                <div className="form"> 
+                <div className="form">
                     <form onSubmit={this.handleSubmitHandler}>
                         <input type="text" placeholder="Link" name="link"></input>
                         <input type="text" placeholder="Description" name="description"></input>
