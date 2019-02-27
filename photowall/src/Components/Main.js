@@ -90,6 +90,10 @@ class Main extends Component {
     return (
       <div>
 
+        <h1>
+          <Link to="/">PhotoWall</Link>
+        </h1>
+
         {/* 
             Instead of using state for changes of UI when rendered, use the React route to change the UI that
             matches the browser url.
@@ -99,7 +103,7 @@ class Main extends Component {
         */}
         <Route exact path="/" render={() => (
           <div>
-            <Title title={"PhotoWall"} />
+            {/* <Title title={"PhotoWall"} /> */}
             <PhotoWall {...this.props} />
           </div>
         )} />

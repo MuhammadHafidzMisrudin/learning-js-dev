@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 // Create a stateless function component of Photo.
 // Stateless function component only returns render method which does not contain component lifecycles.

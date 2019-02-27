@@ -42,7 +42,7 @@ class AddPhoto extends Component {
         return (
 
             <div>
-                <h1>PhotoWall</h1>
+                {/* <h1>PhotoWall</h1> */}
                 <div className="form">
                     <form onSubmit={this.handleSubmitHandler}>
                         <input type="text" placeholder="Link" name="link"></input>

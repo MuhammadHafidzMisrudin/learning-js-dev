@@ -18,6 +18,12 @@ h1 {
   letter-spacing: -2px;
 }
 
+/* Styles for Photowall title link/anchor tag */
+h1 a {
+  color: red;
+  text-decoration: none;
+}
+
 @font-face {
   font-family: 'billabong';
   src: url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.eot?#iefix") format('embedded-opentype'), url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.woff") format('woff'), url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.ttf") format('truetype'), url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.svg#billabongregular") format('svg');
@@ -57,6 +63,7 @@ h1 {
   padding: 5px;
 }
 
+/* Styles for Add button on Photowall page */
 .add-icon {
   margin: 20px auto; /* Center the button */
   display: table; /* Center the button */
@@ -66,6 +73,7 @@ h1 {
   border: none;
 }
 
+/* Styles for AddPhoto form page */
 .form {
   /* background: rgb(106, 205, 223); */
   background: white;
@@ -112,3 +120,5 @@ h1 {
 button:hover {
   border-color: blue;
 }
+
+/* Styles for comment feature in Photowall page */
