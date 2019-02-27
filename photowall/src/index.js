@@ -10,7 +10,7 @@ import App from './Components/App';
 
 
 // Create and initialise Redux Store.
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 // Render an instance of <Main/> Component that renders all subcomponents.
 // Add <BrowserRouter> to keep track of the changes in the urls in the browser.
