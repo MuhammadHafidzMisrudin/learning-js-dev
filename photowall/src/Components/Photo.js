@@ -12,7 +12,7 @@ function Photo(props) {
     <figure className="figure">
 
       <Link to={`/single/${post.id}`}>
-        {/* Add Link tag to redirect to the Single photo component with its given post id. */}
+        {/* Add Link tag to redirect to the Single photo component with its given post id when clicked. */}
         <img className="photo" src={post.imageLink} alt={post.description}></img>
       </Link>
 

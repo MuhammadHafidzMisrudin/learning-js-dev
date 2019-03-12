@@ -18,7 +18,7 @@ h1 {
   letter-spacing: -2px;
 }
 
-/* Styles for Photowall title link/anchor tag */
+/* Styles for Photowall title link/anchor tag. */
 h1 a {
   color: red;
   text-decoration: none;
@@ -39,20 +39,20 @@ body {
 
 .photo-grid {
   max-width: 1000px;
-  margin: 0px auto; /* Centering the Component photo figures */
-  display: flex; /* Diplay all element as flex items equal shape */
-  flex-wrap: wrap; /* All of the flex items inside of the container can break lines if needed */
+  margin: 0px auto; /* Centering the Component photo figures. */
+  display: flex; /* Diplay all element as flex items equal shape. */
+  flex-wrap: wrap; /* All of the flex items inside of the container can break lines if needed. */
 }
 
 .figure {
   flex-basis: calc(33.333% - 4rem);
   border: 1px solid #d3d3d3;
   padding: 2rem;
-  flex-grow: 1; /* All elements on the row will share the same width and equal grid space, and extra whole space for other container */
+  flex-grow: 1; /* All elements on the row will share the same width and equal grid space, and extra whole space for other container. */
   margin: 0 2rem 2rem 2rem;
 }
 
-/* Styles for Single photo on Single component page */
+/* Styles for Single photo on Single component page. */
 .figure .single-photo {
   flex-basis: calc(33.333% - 4rem);
   flex-grow: 1;
@@ -81,14 +81,49 @@ body {
   max-width: 60%;
 }
 
+.single-photo .comments {
+  flex: 1 0 40%;
+  max-width: 40%;
+}
+
+.single-photo .photo {
+  width: 100%;
+  margin: 0;
+}
 
 .photo {
   width: calc(100% + 4rem);
-  margin: -2rem 0rem 0rem -2rem;
+  /* margin: -2rem 0rem 0rem -2rem; */
+  margin-left: -2rem;
+  margin-top: -2rem;
+  max-width: none;
 }
 
+/* Styles for Comment form on Comments component. */
+.comment {
+  width: 100%
+}
+
+.comment p {
+  border-bottom: 1px solid #d3d3d3;
+  padding: 0.5rem 0;
+}
+
+.comment-form input, .comment-form textarea {
+  width: 100%;
+  border: 0;
+  font-size: 1.3rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #d3d3d3;
+  outline: none;
+  resize: vertical;
+}
+
+/* Styles for Button in Photo component page. */
 .button-container {
+  margin: 0 auto;
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 
@@ -101,23 +136,23 @@ body {
   padding: 5px;
 }
 
-/* Styles for Add button on Photowall page */
+/* Styles for Add button in Photowall page. */
 .add-icon {
-  margin: 20px auto; /* Center the button */
-  display: table; /* Center the button */
+  margin: 20px auto; /* Center the button. */
+  display: table; /* Center the button. */
   padding: 40px;
   background: url("https://image.flaticon.com/icons/svg/60/60740.svg") center no-repeat;
-  background-size: contain; /* Scale the image to the extent of button as much as possible without cropping or stretching */
+  background-size: contain; /* Scale the image to the extent of button as much as possible without cropping or stretching. */
   border: none;
 }
 
-/* Styles for AddPhoto form page */
+/* Styles for AddPhoto form page. */
 .form {
   /* background: rgb(106, 205, 223); */
   background: white;
-  margin: 0 auto; /* Center the form and inputs */
+  margin: 0 auto; /* Center the form and inputs. */
   max-width: 360px;
-  padding: 45px; /* Center the input box */
+  padding: 45px; /* Center the input box. */
   text-align: center;
 }
 
@@ -127,7 +162,7 @@ body {
   width: 100%;
   border: none;
   padding: 15px;
-  box-sizing: border-box; /* Maintain the width size of the input box in container */
+  box-sizing: border-box; /* Maintain the width size of the input box in container. */
   font-size: 14px;
   margin: 0 0 15px;
 }
@@ -159,7 +194,7 @@ button:hover {
   border-color: blue;
 }
 
-/* Styles for comment feature in Photowall page */
+/* Styles for comment feature in Photowall page. */
 .comment-count {
   margin: 0 auto;
   display: flex;

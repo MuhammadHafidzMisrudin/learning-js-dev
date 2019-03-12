@@ -107,7 +107,7 @@ class Main extends Component {
             {/* <Title title={"PhotoWall"} /> */}
             <PhotoWall {...this.props}/>
           </div>
-        )} />
+        )}/>
 
         {/* 
             Multiple UI components must be enclosed by <div> in render method property,

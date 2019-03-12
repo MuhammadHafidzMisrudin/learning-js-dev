@@ -6,7 +6,7 @@ class Comments extends Component {
             <div className="comment">
                 <form className="comment-form">
                     <input type="text" placeholder="comment"/>
-                    <input type="submit"/>
+                    <input type="submit" hidden/>
                 </form>
             </div>
         );
