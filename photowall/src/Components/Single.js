@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Photo from './Photo';
+import Comments from './Comments';
 
 // Create a class component of Single.
 // For Single Photo with comment section screen.
@@ -14,6 +15,7 @@ class Single extends Component {
         return (
             <div className="single-photo">
                 <Photo post={post}/>
+                <Comments/>
             </div>
         );
     }

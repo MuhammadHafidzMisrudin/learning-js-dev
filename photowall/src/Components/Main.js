@@ -105,7 +105,7 @@ class Main extends Component {
         <Route exact path="/" render={() => (
           <div>
             {/* <Title title={"PhotoWall"} /> */}
-            <PhotoWall {...this.props} />
+            <PhotoWall {...this.props}/>
           </div>
         )} />
 
@@ -118,7 +118,7 @@ class Main extends Component {
             Spread operator (i.e, {...this.props}) is passed in as AddPhoto props to have access to Redux store and actions.
         */}
         <Route exact path="/AddPhoto" render={({ history }) => (
-          <AddPhoto {...this.props} onHistory={history} />
+          <AddPhoto {...this.props} onHistory={history}/>
         )} />
 
         {/* Add Route component that passes in render as props to invoke Single Photo UI component. */}
