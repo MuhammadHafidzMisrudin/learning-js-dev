@@ -4,6 +4,7 @@ import Title from './Title';
 import AddPhoto from './AddPhoto';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import { removePost } from '../redux/actions';
+import Single from './Single';
 
 // Main component as a top level component to render its subcomponents.
 class Main extends Component {
@@ -119,6 +120,11 @@ class Main extends Component {
         <Route exact path="/AddPhoto" render={({ history }) => (
           <AddPhoto {...this.props} onHistory={history} />
         )} />
+
+        {/* Add Route component that passes in render as props to invoke Single Photo UI component. */}
+        <Route path="/single/:id" render={(params) => (
+          <Single {...this.props} {...params}/>
+        )}/>
 
       </div>
     );

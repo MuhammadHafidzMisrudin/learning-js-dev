@@ -10,7 +10,12 @@ function Photo(props) {
   const post = props.post;
   return (
     <figure className="figure">
-      <img className="photo" src={post.imageLink} alt={post.description}></img>
+
+      <Link to={`/single/${post.id}`}>
+        {/* Add Link tag to redirect to the Single photo component with its given post id. */}
+        <img className="photo" src={post.imageLink} alt={post.description}></img>
+      </Link>
+
       <figcaption>
         <p>{post.description}</p>
       </figcaption>
@@ -21,6 +26,7 @@ function Photo(props) {
             Then remove action goes to Redux reducer. */}
         <button className="remove-button" onClick={() => props.removePost(props.index)}>Remove</button>
       </div>
+
     </figure>);
 }
 

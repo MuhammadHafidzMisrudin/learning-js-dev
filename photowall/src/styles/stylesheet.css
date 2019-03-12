@@ -24,9 +24,17 @@ h1 a {
   text-decoration: none;
 }
 
+h1 a:focus {
+  outline: 0;
+}
+
 @font-face {
   font-family: 'billabong';
   src: url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.eot?#iefix") format('embedded-opentype'), url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.woff") format('woff'), url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.ttf") format('truetype'), url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.svg#billabongregular") format('svg');
+}
+
+body {
+  background: white;
 }
 
 .photo-grid {
@@ -43,6 +51,36 @@ h1 a {
   flex-grow: 1; /* All elements on the row will share the same width and equal grid space, and extra whole space for other container */
   margin: 0 2rem 2rem 2rem;
 }
+
+/* Styles for Single photo on Single component page */
+.figure .single-photo {
+  flex-basis: calc(33.333% - 4rem);
+  flex-grow: 1;
+  flex-shrink: 0;
+  margin: 0 2rem 2rem 2rem;
+  padding: 2rem;
+  border: 1px solid #d3d3d3;
+  background: #fff;
+  position: relative;
+}
+
+.single-photo {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  background: #fff;
+  border: black;
+}
+
+.single-photo .figure {
+  box-shadow: none;
+  margin: 0 2rem 0 0;
+  border: 0;
+  padding: 0;
+  flex: 1 0 60%;
+  max-width: 60%;
+}
+
 
 .photo {
   width: calc(100% + 4rem);
@@ -122,3 +160,10 @@ button:hover {
 }
 
 /* Styles for comment feature in Photowall page */
+.comment-count {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
