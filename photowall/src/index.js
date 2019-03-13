@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom';
 import './styles/stylesheet.css';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import { createStore } from 'redux';
-import rootReducer from './redux/reducer';
 import { Provider } from 'react-redux';
+import rootReducer from './redux/reducer';
 import App from './Components/App';
 // import Main from './Components/Main';
 
 
 // Create and initialise Redux Store.
+// Redux store contains a combined two reducers of comments and posts into a single root reducer.
 const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 // Render an instance of <Main/> Component that renders all subcomponents.

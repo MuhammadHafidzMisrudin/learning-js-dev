@@ -23,7 +23,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 // Create App component to make the Main component connected to the Redux store.
-// Wrap the connecting component to the Redux store with the Redux router.
+// Wrap the connecting component to the Redux store with the Redux React router.
 const App = withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
 
 // App acts as a container component.

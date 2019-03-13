@@ -1,8 +1,9 @@
 import posts from '../data/posts';
+import { combineReducers } from 'redux';
 
 // Create a reducer for state of posts.
 // Use a reducer to populate the store with initial or current state.
-const postReducer = function posts(state = posts, action) {
+function posts(state = posts, action) {
     console.log(action.index);
 
     // Updating the state without directly modifying or writing or changing it.
@@ -27,4 +28,14 @@ const postReducer = function posts(state = posts, action) {
     }
 }
 
-export default postReducer;
+// Create a reducer for state of comments.
+function comments(state = [], action) {
+    return state;
+}
+
+// Combine two reducers (posts and comments) into a single root reducer.
+// Pass in the object that is reference to two reducer functions.
+const rootReducer = combineReducers({ posts, comments });
+
+export default rootReducer;
+// export default postReducer;

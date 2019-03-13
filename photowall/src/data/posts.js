@@ -1,4 +1,4 @@
-// Emulate and create data as posts for current initial state for redux store and reducer function.
+// Emulate and create data as posts for current initial state for Redux store and reducer function.
 const posts = [{
     id: 0,
     description: "beautiful landscape",
