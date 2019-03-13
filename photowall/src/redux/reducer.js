@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 
 // Create a reducer for state of posts.
 // Use a reducer to populate the store with initial or current state.
+// Reducer to update the state of posts.
 function posts(state = posts, action) {
     console.log(action.index);
 
@@ -29,6 +30,7 @@ function posts(state = posts, action) {
 }
 
 // Create a reducer for state of comments.
+// Reducer to update the state of comments.
 function comments(state = [], action) {
     return state;
 }

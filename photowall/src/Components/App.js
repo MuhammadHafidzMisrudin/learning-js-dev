@@ -7,10 +7,14 @@ import { withRouter } from 'react-router';
 
 /*
   App component connects the store to Main component.
+  
+  The state posts gets populated by the state that's being given to it by the posts reducer.
+  The state comments get populated by the state that's being given to it by the comments reducer.
 */
 function mapStateToProps(state) {
   return {
-    posts: state
+    posts: state.posts,
+    comments: state.comments
   }
 }
 
