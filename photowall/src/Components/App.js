@@ -21,9 +21,11 @@ function mapStateToProps(state) {
 /* 
   Function to provide a shorthand for removePost action method inside of Main component.
   Example: Change from "this.props.dispatch(removePost(index))" to "this.props.removePost(index)".
+
+  Function to bind all action creators implemented from actions.js.
 */
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(actions, dispatch); // or bindActionCreators({ removePost, addPost}, dispatch)
+  return bindActionCreators(actions, dispatch); // or bindActionCreators({ removePost, addPost, addComment}, dispatch)
 }
 
 // Create App component to make the Main component connected to the Redux store.
