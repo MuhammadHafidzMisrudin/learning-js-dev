@@ -5,8 +5,8 @@ class Comments extends Component {
         return (
             <div className="comment">
                 <form className="comment-form">
-                    <input type="text" placeholder="comment"/>
-                    <input type="submit" hidden/>
+                    <input type="text" placeholder="comment" />
+                    <input type="submit" hidden />
                 </form>
             </div>
         );
