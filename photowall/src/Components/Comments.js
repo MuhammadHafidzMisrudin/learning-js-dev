@@ -16,7 +16,7 @@ class Comments extends Component {
         console.log(event.target.elements.comment.value);
         const comment = event.target.elements.comment.value;
 
-        // Emit the Redux action addComment method.
+        // Emit the Redux action addComment method with the comment.
         // Upon emitting this action, it will go to the reducer and update the state.
         this.props.addComment(comment);
     }
@@ -26,6 +26,7 @@ class Comments extends Component {
             <div className="comment">
                 {
                     this.props.comments.map((comment, index) => {
+                        // Display new comments
                         return (
                             <p key={index}>{comment}</p>
                         )

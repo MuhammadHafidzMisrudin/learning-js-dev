@@ -36,6 +36,13 @@ function comments(state = [], action) {
     console.log("comment reducer");
 
     switch (action.type) {
+        /*
+            If the addcomment gets dispatched with action of ADD_COMMENT, return an array of comments.
+            It contains the current state, and destructures the array and adds some more comments,
+            and will add in the comments that was just submitted to the comment state. 
+
+            Returns the updated comment state that includes the new comment.
+        */
         case 'ADD_COMMENT':
             return [...state, action.comment];
             

@@ -11,7 +11,7 @@ class Single extends Component {
         const id = Number(match.params.id);
         const post = posts.find((post) => post.id === id);
         console.log("current post id: ", post);
-        const comments = this.props.comments;
+        const comments = this.props.comments; // the comments in redux store passed down as props.
         
         return (
             <div className="single-photo">
