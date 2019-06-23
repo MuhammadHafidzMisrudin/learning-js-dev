@@ -13,7 +13,9 @@ class Single extends Component {
         console.log("current post id: ", post);
 
         // The comments in redux store passed down as props.
-        const comments = this.props.comments; 
+        // Comments with specific id.
+        // Check if the comments and id are undefined, if it is, set the comments equal to empty array.
+        const comments = this.props.comments[id] || []; 
         
         return (
             <div className="single-photo">

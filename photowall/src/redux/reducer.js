@@ -32,7 +32,7 @@ function posts(state = _posts, action) {
 
 // Create a reducer for state of comments.
 // Reducer to update the state of comments.
-function comments(state = [], action) {
+function comments(state = {}, action) {
     console.log("comment reducer section");
 
     switch (action.type) {
@@ -45,7 +45,19 @@ function comments(state = [], action) {
         */
         case 'ADD_COMMENT':
             console.log("post id: ", action.postId);
-            return [...state, action.comment];
+            // return [...state, action.comment];
+            // return { ...state, [action.postId]: [action.comment]}
+
+            // If the post id is undefined which is not added with any comments yet.
+            // Add new comment.
+            if (!state[action.postId]) {
+                return {...state, [action.postId]: [action.comment]};
+            } else {
+                // Else, if there are comments already on the post.
+                // And the post is not undefined.
+                // Add new comments.
+                return {...state, [action.postId]: [...state[action.postId], action.comment]};
+            }
             
         default:
             return state;

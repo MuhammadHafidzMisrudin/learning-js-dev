@@ -22,6 +22,7 @@ class Comments extends Component {
     }
 
     render() {
+        console.log("log comments [render]: ", this.props.comments);
         return (
             <div className="comment">
                 {

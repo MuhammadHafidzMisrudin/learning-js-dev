@@ -10,6 +10,10 @@ import { withRouter } from 'react-router';
   
   The state posts gets populated by the state that's being given to it by the posts reducer.
   The state comments get populated by the state that's being given to it by the comments reducer.
+  
+  Note:
+  - The comments state that lives inside of Redux store as an object It contains a bunch of ids.
+    Each id will have an array of comments.
 */
 function mapStateToProps(state) {
   return {
