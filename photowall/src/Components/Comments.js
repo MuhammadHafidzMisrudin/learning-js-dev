@@ -16,9 +16,9 @@ class Comments extends Component {
         console.log(event.target.elements.comment.value);
         const comment = event.target.elements.comment.value;
 
-        // Emit the Redux action addComment method with the comment.
+        // Emit the Redux action addComment method with the comment and its post id.
         // Upon emitting this action, it will go to the reducer and update the state.
-        this.props.addComment(comment);
+        this.props.addComment(comment, this.props.id);
     }
 
     render() {

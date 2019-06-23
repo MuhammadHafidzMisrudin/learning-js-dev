@@ -5,8 +5,8 @@ import { combineReducers } from 'redux';
 // Use a reducer to populate the store with initial or current state.
 // Reducer to update the state of posts.
 function posts(state = _posts, action) {
-    console.log("posts reducer");
-    console.log(action.index);
+    console.log("posts reducer section");
+    // console.log(action.index);
 
     // Updating the state without directly modifying or writing or changing it.
     switch (action.type) {
@@ -33,7 +33,7 @@ function posts(state = _posts, action) {
 // Create a reducer for state of comments.
 // Reducer to update the state of comments.
 function comments(state = [], action) {
-    console.log("comment reducer");
+    console.log("comment reducer section");
 
     switch (action.type) {
         /*
@@ -44,6 +44,7 @@ function comments(state = [], action) {
             Returns the updated comment state that includes the new comment.
         */
         case 'ADD_COMMENT':
+            console.log("post id: ", action.postId);
             return [...state, action.comment];
             
         default:

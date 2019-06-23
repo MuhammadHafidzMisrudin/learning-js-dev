@@ -19,9 +19,11 @@ export function addPost(post) {
 }
 
 // Add action adding comments function.
-export function addComment(comment) {
+// Takes in arguments of comment and its post id.
+export function addComment(comment, postId) {
     return {
         type: 'ADD_COMMENT',
-        comment
+        comment,
+        postId
     }
 }
