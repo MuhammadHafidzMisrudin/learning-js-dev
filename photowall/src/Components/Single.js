@@ -15,11 +15,15 @@ class Single extends Component {
         // The comments in redux store passed down as props.
         // Comments with specific id.
         // Check if the comments and id are undefined, if it is, set the comments equal to empty array.
-        const comments = this.props.comments[id] || []; 
-        
+        const comments = this.props.comments[id] || [];
+
+        // Find index of the specific photo (single photo) with the specific post id.
+        // Passed in as props.
+        const index = this.props.posts.findIndex((post) => post.id === id);
+
         return (
             <div className="single-photo">
-                <Photo post={post}/>
+                <Photo post={post} {...this.props} index={index}/>
                 <Comments addComment={this.props.addComment} comments={comments} id={id}/>
             </div>
         );

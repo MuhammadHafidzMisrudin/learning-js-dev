@@ -23,8 +23,13 @@ function Photo(props) {
       <div className="button-container">
 
         {/* Emit removePost() action with index param that passed in as prop which triggered by onClick event handler. 
-            Then remove action goes to Redux reducer. */}
-        <button className="remove-button" onClick={() => props.removePost(props.index)}>Remove</button>
+            Then remove action goes to Redux reducer. Remove post reducer updates the posts state
+            
+            Upon deleting the photo, it will navigate back to the main page. */}
+        <button className="remove-button" onClick={() => {
+          props.removePost(props.index);
+          props.history.push('/'); 
+          }}>Remove</button>
       </div>
 
     </figure>);
