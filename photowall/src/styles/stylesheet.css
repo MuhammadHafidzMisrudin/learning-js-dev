@@ -18,7 +18,7 @@ h1 {
   letter-spacing: -2px;
 }
 
-/* Styles for Photowall title link/anchor tag. */
+/* Styles for Photowall Title component link/anchor tag. */
 h1 a {
   color: red;
   text-decoration: none;
@@ -32,18 +32,22 @@ h1 a:focus {
   font-family: 'billabong';
   src: url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.eot?#iefix") format('embedded-opentype'), url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.woff") format('woff'), url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.ttf") format('truetype'), url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.svg#billabongregular") format('svg');
 }
+/* End */
 
 body {
   background: white;
 }
 
+/* Styles for Photowall component page. */
 .photo-grid {
   max-width: 1000px;
   margin: 0px auto; /* Centering the Component photo figures. */
   display: flex; /* Diplay all element as flex items equal shape. */
   flex-wrap: wrap; /* All of the flex items inside of the container can break lines if needed. */
 }
+/* End */
 
+/* Styles for Photo component page. */
 .figure {
   flex-basis: calc(33.333% - 4rem);
   border: 1px solid #d3d3d3;
@@ -51,6 +55,7 @@ body {
   flex-grow: 1; /* All elements on the row will share the same width and equal grid space, and extra whole space for other container. */
   margin: 0 2rem 2rem 2rem;
 }
+/* End */
 
 /* Styles for Single photo on Single component page. */
 .figure .single-photo {
@@ -98,6 +103,7 @@ body {
   margin-top: -2rem;
   max-width: none;
 }
+/* End */
 
 /* Styles for Comment form on Comments component page. */
 .comment {
@@ -241,7 +247,6 @@ button:hover {
 }
 
 .loader {
-
   height: 20%;
   width: 100%;
   display: flex;
