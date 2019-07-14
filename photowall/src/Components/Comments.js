@@ -19,6 +19,9 @@ class Comments extends Component {
         // Emit the Redux action addComment method with the comment and its post id.
         // Upon emitting this action, it will go to the reducer and update the state.
         this.props.addComment(comment, this.props.id);
+
+        // Clear out the textfield to default after add some comment.
+        event.target.elements.comment.value = '';
     }
 
     render() {
