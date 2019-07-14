@@ -28,8 +28,18 @@ function Photo(props) {
             Upon deleting the photo, it will navigate back to the main page. */}
         <button className="remove-button" onClick={() => {
           props.removePost(props.index);
-          props.history.push('/'); 
-          }}>Remove</button>
+          props.history.push('/');
+        }}>Remove</button>
+
+        <Link className="button" to={`/single/${post.id}`}>
+          <div className="comment-count">
+            <div className="speech-bubble"></div>
+
+            {/* Display the number of comments. If the comments post id has value, will return the length of that array.
+                Otherwise, if it is undefined, returns zero. */}
+            {props.comments[post.id] ? props.comments[post.id].length : 0}
+          </div>
+        </Link>
       </div>
 
     </figure>);
