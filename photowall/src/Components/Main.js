@@ -57,31 +57,6 @@ class Main extends Component {
     // console.log(this.state);
   }
 
-  // Add a function to remove Photo.
-  // removePhoto(postRemoved) {
-
-  //   // Debug current state of single post.
-  //   console.log(postRemoved.description + " post gets removed!");
-
-  //   // Update the state of posts (Component).
-  //   // Filter out the removed post from the current state of array (posts)
-  //   // Return the updated state of new posts list.
-  //   this.setState((state) => ({
-  //     posts: state.posts.filter(post => post !== postRemoved)
-  //   }));
-  // }
-
-  // Add a functoin to update the state of posts - Add new photos.
-  // addNewPhoto(postSubmitted) {
-
-  //   // Update the current post and add a new post which submitted by the form using concat().
-  //   // Concatenate the submitted new post as a piece of array.
-  //   // Thus it will return a new array.
-  //   this.setState((state) => ({
-  //     posts: state.posts.concat([postSubmitted])
-  //   }))
-  // } 
-
   // Render the Component instances of Title and PhotoWall.
   // Pass posts list and removePhoto() as props to Photowall component.
   render() {
