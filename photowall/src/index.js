@@ -2,16 +2,18 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './styles/stylesheet.css';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './redux/reducer';
 import App from './Components/App';
+import thunk from 'redux-thunk';
+import {database} from './database/config';
 // import Main from './Components/Main';
-
 
 // Create and initialise Redux Store.
 // Redux store contains a combined two reducers of comments and posts into a single root reducer.
-const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+// Redux Thunk middleware allows you to write action creators that return a function instead of an action.
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), applyMiddleware(thunk));
 
 // Render an instance of <Main/> Component that renders all subcomponents.
 // Add <BrowserRouter> to keep track of the changes in the urls in the browser.
