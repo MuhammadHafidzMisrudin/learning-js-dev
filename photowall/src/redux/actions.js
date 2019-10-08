@@ -12,6 +12,9 @@ export function startAddingPost(post) {
         // After update the database, it will dispatch an action that updates the Redux store.
         return database.ref('posts').update({[post.id]: post}).then(() => {
             dispatch(addPost(post));
+        }).catch((error) => {
+            // Check if update doesnt work and error occurs.
+            console.log(error);
         });
     }
 }

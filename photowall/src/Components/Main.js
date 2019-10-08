@@ -41,7 +41,6 @@ class Main extends Component {
   // Hint: lifecycle only for fetching data from database.
   componentDidMount() {
     console.log('componentDidMount');
-    // this.props.removePost(1);
   }
 
   // Get invoked before render method.
@@ -53,8 +52,6 @@ class Main extends Component {
   // After update the state of component and trigger a render.
   componentDidUpdate(prevProps, prevState) {
     console.log("componentDidUpdate");
-    // console.log(prevState.posts);
-    // console.log(this.state);
   }
 
   // Render the Component instances of Title and PhotoWall.

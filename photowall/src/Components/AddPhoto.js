@@ -31,9 +31,12 @@ class AddPhoto extends Component {
             // Pass newPost object into onAddPhoto prop.
             // this.props.onAddPhoto(newPost); 
 
+            // Update the database first with startAddingPost method.
+            // After update the database, then update the UI through action creator.
             // Emit the Redux action addPost method.
             // Upon emitting this action, it will go to the reducer.
-            this.props.addPost(newPost);
+            // this.props.addPost(newPost);
+            this.props.startAddingPost(newPost);
             this.props.onHistory.push('/'); // Passed as props to navigate back to the Main page after adding new post.
         }
     }
