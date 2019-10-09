@@ -37,10 +37,12 @@ class Main extends Component {
     console.log('constructor');
   }
 
-  // Get invoked after render to update the component state props, posts by fetching data.
+  // Get invoked after render to update the component state and props, posts by fetching data.
   // Hint: lifecycle only for fetching data from database.
+  // Emit action method of startLoadingPost.
   componentDidMount() {
     console.log('componentDidMount');
+    this.props.startLoadingPost(); // Fetch data from firebase by invoking the action method.
   }
 
   // Get invoked before render method.
