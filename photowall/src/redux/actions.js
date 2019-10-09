@@ -1,8 +1,7 @@
 /// Action creators.
-
 import {database} from '../database/config';
 
-// Update the database first, then dispatch an action creator.
+// Add action method to update the database first, then dispatch an action creator.
 // Whenever submit a post, update the database first, once it's done updating,
 // It will dispatch an action creator with dispatch method.
 export function startAddingPost(post) {
@@ -16,10 +15,36 @@ export function startAddingPost(post) {
             // Check if update doesnt work and error occurs.
             console.log(error);
         });
-    }
+    };
 }
 
-// Add action remove function.
+// Add action method for fetching data posts.
+// Method to observe database, grab the data, then invoke the dispatch method to load the data posts onto the Redux store.
+// Return a function takes in a dispatch method.
+export function startLoadingPost() {
+    return (dispatch) => {
+
+        // Access the reference the node posts.
+        // Observe database once and return the value.
+        // Promise returns the data in the form of snapshot.
+        // Snapshot contains all children the node posts.
+        return database.ref('posts').once('value').then((snapshot) => {
+
+            let posts = [];
+
+            // Iterate through each child snapshot.
+            // Append to an posts array and get the value.
+            snapshot.forEach((childSnapshot) => {
+                posts.push(childSnapshot.val());
+            });
+
+            // Dispatch action.
+            dispatch(loadPosts(posts));
+        });
+    };
+}
+
+// Add action creator of remove function.
 // Return a js object that describes the event that should update the application state.
 export function removePost(index) {
     return {
@@ -28,7 +53,7 @@ export function removePost(index) {
     }
 }
 
-// Add action adding post function.
+// Add action creator of adding post function.
 // Return a js object that describes the event that should update the application state.
 export function addPost(post) {
     return {
@@ -37,12 +62,23 @@ export function addPost(post) {
     }
 }
 
-// Add action adding comments function.
-// Takes in arguments of comment and its post id.
+// Add action creator of adding comments function.
+// Pass arguments of comment and its post id.
 export function addComment(comment, postId) {
     return {
         type: 'ADD_COMMENT',
         comment,
         postId
+    }
+}
+
+// Add action creator of load posts function.
+// Load the posts onto the Redux store.
+// Pass the parameter of the posts that is loaded from the database.
+// Return js object.
+export function loadPosts(posts) {
+    return {
+        type: 'LOAD_PHOTO',
+        posts
     }
 }
