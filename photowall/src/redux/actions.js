@@ -12,6 +12,7 @@ export function startAddingPost(post) {
         return database.ref('posts').update({[post.id]: post}).then(() => {
             dispatch(addPost(post));
         }).catch((error) => {
+
             // Check if update doesnt work and error occurs.
             console.log(error);
         });
@@ -78,7 +79,7 @@ export function addComment(comment, postId) {
 // Return js object.
 export function loadPosts(posts) {
     return {
-        type: 'LOAD_PHOTO',
+        type: 'LOAD_POSTS',
         posts
     }
 }

@@ -24,6 +24,12 @@ function posts(state = _posts, action) {
                 and will contain and add a new post that submitted from the form.
             */
             return [...state, action.post];
+        case 'LOAD_POSTS':
+            /*
+                If the loadposts action gets dispatched, it returns the posts.
+                Returns the updated state of posts.
+            */
+            return action.posts;
         default:
             // First load return initial value.
             return state;
