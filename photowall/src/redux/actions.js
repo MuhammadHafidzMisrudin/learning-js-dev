@@ -10,6 +10,8 @@ export function startAddingPost(post) {
         // Update the database with promise.
         // After update the database, it will dispatch an action that updates the Redux store.
         return database.ref('posts').update({[post.id]: post}).then(() => {
+
+            // Dispatch add post action.
             dispatch(addPost(post));
         }).catch((error) => {
 
@@ -39,10 +41,25 @@ export function startLoadingPost() {
                 posts.push(childSnapshot.val());
             });
 
-            // Dispatch action.
+            // Dispatch load post action.
             dispatch(loadPosts(posts));
         });
     };
+}
+
+// Add action method for removing data posts.
+export function startRemovingPosts(index, id) {  
+    return (dispatch) => {
+
+        // Travel to the node posts.
+        // From the node post, access to specific id belonging to the post.
+        // Node with specific id will be removed.
+        return database.ref(`posts/${id}`).remove().then(() => {
+
+            // If the removal successful, dispatch remove action.
+            dispatch(removePost(index));
+        });
+    }
 }
 
 // Add action creator of remove function.
