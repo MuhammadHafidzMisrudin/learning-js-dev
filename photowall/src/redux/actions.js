@@ -48,7 +48,7 @@ export function startLoadingPost() {
 }
 
 // Add action method for removing data posts.
-export function startRemovingPosts(index, id) {  
+export function startRemovingPost(index, id) {  
     return (dispatch) => {
 
         // Travel to the node posts.

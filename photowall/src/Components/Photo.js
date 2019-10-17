@@ -25,10 +25,18 @@ function Photo(props) {
         {/* Emit removePost() action with index param that passed in as prop which triggered by onClick event handler. 
             Then remove action goes to Redux reducer. Remove post reducer updates the posts state
             
-            Upon deleting the photo, it will navigate back to the main page. */}
+            Upon deleting the photo, it will navigate back to the main page. 
+            
+            Update: Instead of updating directly the post state from Redux store,
+                    invoke action method of removing post. 
+                    By calling startRemovingPost() it will remove the post the database.
+                    Then it dispatch the action that updates Redux store inside of reducer and render */}
         <button className="remove-button" onClick={() => {
-          props.removePost(props.index);
+
+          // props.removePost(props.index);
+          props.startRemovingPost(props.index, post.id);
           props.history.push('/');
+
         }}>Remove</button>
 
         <Link className="button" to={`/single/${post.id}`}>
