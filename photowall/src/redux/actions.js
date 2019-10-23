@@ -96,7 +96,7 @@ export function startAddingComment(comment, postId) {
 
 // Add action method for fetching data comments from the database.
 // Method to observe database, grab the data, then invoke the dispatch method to load the data comments onto the Redux store.
-export function startLoadingComments(params) {
+export function startLoadingComments() {
     return (dispatch) => {
 
         // Access the reference the node comments.
@@ -115,9 +115,11 @@ export function startLoadingComments(params) {
                 // Comment object has a specific key of the post id.
                 // Post id with comments is set equal to value.
                 // Object contains a bunch a key-value pairs.
-                comments[childSnapshot.key] = Object.values([childSnapshot.val()]);
-                
+                comments[childSnapshot.key] = Object.values(childSnapshot.val());
             });
+
+            // Dispatch load comments action.
+            dispatch(loadComments(comments));
 
         }).catch((error) => {
 
@@ -163,5 +165,14 @@ export function loadPosts(posts) {
     return {
         type: 'LOAD_POSTS',
         posts
+    }
+}
+
+// Add action creator of load comments function.
+// Load the comments onto the Redux store.
+export function loadComments(comments) {
+    return {
+        type: 'LOAD_COMMENTS',
+        comments
     }
 }

@@ -42,7 +42,14 @@ class Main extends Component {
   // Emit action method of startLoadingPost.
   componentDidMount() {
     console.log('componentDidMount');
-    this.props.startLoadingPost(); // Fetch data from firebase by invoking the action method.
+
+    // Fetch data posts from firebase by invoking the action method.
+    // Load all existing posts.
+    this.props.startLoadingPost(); 
+
+    // Fetch data posts from firebase by invoking the action method.
+    // Load all existing comments.
+    this.props.startLoadingComments();
   }
 
   // Get invoked before render method.

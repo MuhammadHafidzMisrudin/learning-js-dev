@@ -64,7 +64,12 @@ function comments(state = {}, action) {
                 // Add new comments.
                 return {...state, [action.postId]: [...state[action.postId], action.comment]};
             }
-            
+        case 'LOAD_COMMENTS':
+            /*
+                If the loadcomments action gets dispatched, it returns the comments.
+                Returns the updated state of comments.
+            */
+            return action.comments;
         default:
             return state;
     }
