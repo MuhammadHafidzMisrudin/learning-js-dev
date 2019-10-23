@@ -13,6 +13,7 @@ export function startAddingPost(post) {
 
             // Dispatch add post action.
             dispatch(addPost(post));
+
         }).catch((error) => {
 
             // Check if update doesnt work and error occurs.
@@ -81,7 +82,7 @@ export function startAddingComment(comment, postId) {
         // Push comment into the database with specific post id.
         return database.ref('comments/' + postId).push(comment).then(() => {
 
-            // Dispatch the action that updates Redux store with submitted comment.
+            // Dispatch the add comment action that updates Redux store with submitted comment.
             dispatch(addComment(comment, postId));
         }).catch((error) => {
 
