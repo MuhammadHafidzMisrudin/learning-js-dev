@@ -16,9 +16,11 @@ class Comments extends Component {
         console.log(event.target.elements.comment.value);
         const comment = event.target.elements.comment.value;
 
+        // Update the database first with startAddingComment method.
         // Emit the Redux action addComment method with the comment and its post id.
         // Upon emitting this action, it will go to the reducer and update the state.
-        this.props.addComment(comment, this.props.id);
+        // this.props.addComment(comment, this.props.id);
+        this.props.startAddingComment(comment, this.props.id);
 
         // Clear out the textfield to default after add some comment.
         event.target.elements.comment.value = '';

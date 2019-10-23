@@ -43,6 +43,11 @@ export function startLoadingPost() {
 
             // Dispatch load post action.
             dispatch(loadPosts(posts));
+
+        }).catch((error) => {
+
+            // Check if update doesnt work and error occurs.
+            console.log(error);
         });
     };
 }
@@ -58,8 +63,32 @@ export function startRemovingPost(index, id) {
 
             // If the removal successful, dispatch remove action.
             dispatch(removePost(index));
+
+        }).catch((error) => {
+
+            // Check if update doesnt work and error occurs.
+            console.log(error);
         });
     }
+}
+
+// Add action method for saving comments.
+// Params of comment and post id.
+// Use the post id to direct to the proper node that displays comment, the comment is saved in the database.
+export function startAddingComment(comment, postId) {
+    return (dispatch) => {
+
+        // Push comment into the database with specific post id.
+        return database.ref('comments/' + postId).push(comment).then(() => {
+
+            // Dispatch the action that updates Redux store with submitted comment.
+            dispatch(addComment(comment, postId));
+        }).catch((error) => {
+
+            // Check if update doesnt work and error occurs.
+            console.log(error);
+        });
+    };
 }
 
 // Add action creator of remove function.
