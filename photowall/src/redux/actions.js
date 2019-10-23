@@ -22,7 +22,7 @@ export function startAddingPost(post) {
     };
 }
 
-// Add action method for fetching data posts.
+// Add action method for fetching data posts from the database.
 // Method to observe database, grab the data, then invoke the dispatch method to load the data posts onto the Redux store.
 // Return a function takes in a dispatch method.
 export function startLoadingPost() {
@@ -34,10 +34,11 @@ export function startLoadingPost() {
         // Snapshot contains all children the node posts.
         return database.ref('posts').once('value').then((snapshot) => {
 
+            // Initialize an array to store each snapshot.
             let posts = [];
 
             // Iterate through each child snapshot.
-            // Append to an posts array and get the value.
+            // Append to an array of posts and get the value.
             snapshot.forEach((childSnapshot) => {
                 posts.push(childSnapshot.val());
             });
@@ -84,12 +85,46 @@ export function startAddingComment(comment, postId) {
 
             // Dispatch the add comment action that updates Redux store with submitted comment.
             dispatch(addComment(comment, postId));
+
         }).catch((error) => {
 
             // Check if update doesnt work and error occurs.
             console.log(error);
         });
     };
+}
+
+// Add action method for fetching data comments from the database.
+// Method to observe database, grab the data, then invoke the dispatch method to load the data comments onto the Redux store.
+export function startLoadingComments(params) {
+    return (dispatch) => {
+
+        // Access the reference the node comments.
+        // Observe database once and return the value.
+        // Promise returns the data in the form of snapshot.
+        // Snapshot contains all children the node comments.
+        return database.ref('comments').once('value').then((snapshot) => {
+
+            // Initialize an object to store each snapshot.
+            let comments = {};
+
+            // Iterate through each child snapshot.
+            // Append to an object of comments and get the value.
+            snapshot.forEach((childSnapshot) => {
+
+                // Comment object has a specific key of the post id.
+                // Post id with comments is set equal to value.
+                // Object contains a bunch a key-value pairs.
+                comments[childSnapshot.key] = Object.values([childSnapshot.val()]);
+                
+            });
+
+        }).catch((error) => {
+
+            // Check if update doesnt work and error occurs.
+            console.log(error);
+        });
+    }; 
 }
 
 // Add action creator of remove function.
