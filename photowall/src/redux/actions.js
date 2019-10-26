@@ -55,13 +55,33 @@ export function startLoadingPost() {
 }
 
 // Add action method for removing data posts.
-export function startRemovingPost(index, id) {  
-    return (dispatch) => {
+export function startRemovingPost(index, id) { 
+    
+    /* 
+        This specifies the paths to update data to null (basically delete the data).
+        It navigates to the post with specific id for deletion when the remove button clicked.
+        As well as the comments belonging to that post, with that same id for deletion. 
+    */
+    const updatesByDelete = {
+        [`posts/${id}`]: null,
+        [`comments/${id}`]: null
+    };
 
-        // Travel to the node posts.
-        // From the node post, access to specific id belonging to the post.
-        // Node with specific id will be removed.
-        return database.ref(`posts/${id}`).remove().then(() => {
+    return (dispatch) => {
+        
+        /* 
+            Travel to the node posts.
+            From the node post, access to specific id belonging to the post and the comments.
+            Node with specific id will be removed with the post and its comments.
+            Modify and update the data to null.
+        
+            Update the database from its root node, such that it navigates to the posts path.
+            As well as the comments path, and sets them to null.
+            (In other words, deletes both of them).
+            After deleting the post and its comments from the database,
+            It updates the UI by dispatching an action to the Redux reducer
+        */
+        return database.ref().update(updatesByDelete).then(() => {
 
             // If the removal successful, dispatch remove action.
             dispatch(removePost(index));
@@ -71,7 +91,24 @@ export function startRemovingPost(index, id) {
             // Check if update doesnt work and error occurs.
             console.log(error);
         });
-    }
+    };
+
+    // return (dispatch) => {
+
+    //     // Travel to the node posts.
+    //     // From the node post, access to specific id belonging to the post.
+    //     // Node with specific id will be removed.
+    //     return database.ref(`posts/${id}`).remove().then(() => {
+
+    //         // If the removal successful, dispatch remove action.
+    //         dispatch(removePost(index));
+
+    //     }).catch((error) => {
+
+    //         // Check if update doesnt work and error occurs.
+    //         console.log(error);
+    //     });
+    // };
 }
 
 // Add action method for saving comments.
