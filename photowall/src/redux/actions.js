@@ -54,7 +54,7 @@ export function startLoadingPost() {
     };
 }
 
-// Add action method for removing data posts.
+// Add action method for removing data posts and comments.
 export function startRemovingPost(index, id) { 
     
     /* 
