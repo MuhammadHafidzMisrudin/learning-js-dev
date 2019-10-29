@@ -26,8 +26,11 @@ class Single extends Component {
         // If it is currently loading posts, return a string value of loading. 
         if (this.props.loading === true) {
             return (<div className="loader">...LOADING</div>);
-        } else {
-            // If its done loading the posts, simple return the Child components (Photo & Comments).
+        } else if (post) {
+            /* 
+                Else, if its done loading the posts, check if there is a post and not undefined,
+                simply return the Child components (Photo & Comments).
+            */
             return (
                 <div className="single-photo">
                     <Photo post={post} {...this.props} index={index} />
@@ -35,6 +38,10 @@ class Single extends Component {
                     {/* <Comments addComment={this.props.addComment} comments={comments} id={id}/> */}
                 </div>
             );
+        } else {
+            // Else, if indeed the post is undefined (removed/doesn't exit).
+            // Return a string value.
+            return (<h1>...Error 404. No Post Found!</h1>);
         }
     }
 }
