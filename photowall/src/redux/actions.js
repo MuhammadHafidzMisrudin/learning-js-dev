@@ -2,8 +2,8 @@
 import {database} from '../database/config';
 
 // Add action method to update the database first, then dispatch an action creator.
-// Whenever submit a post, update the database first, once it's done updating,
-// It will dispatch an action creator with dispatch method.
+// Whenever submit a post, it updates the database first.
+// Once it's done updating, it will dispatch an action creator with dispatch method.
 export function startAddingPost(post) {
     return (dispatch) => {
 
@@ -28,10 +28,12 @@ export function startAddingPost(post) {
 export function startLoadingPost() {
     return (dispatch) => {
 
-        // Access the reference the node posts.
-        // Observe database once and return the value.
-        // Promise returns the data in the form of snapshot.
-        // Snapshot contains all children the node posts.
+        /* 
+            Access the reference the node posts.
+            Observe database once and return the value.
+            Promise returns the data in the form of snapshot.
+            Snapshot contains all children the node posts.
+        */
         return database.ref('posts').once('value').then((snapshot) => {
 
             // Initialize an array to store each snapshot.
@@ -79,7 +81,7 @@ export function startRemovingPost(index, id) {
             As well as the comments path, and sets them to null.
             (In other words, deletes both of them).
             After deleting the post and its comments from the database,
-            It updates the UI by dispatching an action to the Redux reducer
+            It updates the UI by dispatching an action to the Redux reducer.
         */
         return database.ref().update(updatesByDelete).then(() => {
 
@@ -136,10 +138,13 @@ export function startAddingComment(comment, postId) {
 export function startLoadingComments() {
     return (dispatch) => {
 
-        // Access the reference the node comments.
-        // Observe database once and return the value.
-        // Promise returns the data in the form of snapshot.
-        // Snapshot contains all children the node comments.
+        /* 
+            Access the reference the node comments.
+            Observe database once and return the value.
+            Promise returns the data in the form of snapshot.
+            Snapshot contains all children the node comments.         
+        */
+
         return database.ref('comments').once('value').then((snapshot) => {
 
             // Initialize an object to store each snapshot.

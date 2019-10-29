@@ -21,13 +21,19 @@ class Single extends Component {
         // Passed in as props.
         const index = this.props.posts.findIndex((post) => post.id === id);
 
-        return (
-            <div className="single-photo">
-                <Photo post={post} {...this.props} index={index}/>
-                <Comments startAddingComment={this.props.startAddingComment} comments={comments} id={id}/>
-                {/* <Comments addComment={this.props.addComment} comments={comments} id={id}/> */}
-            </div>
-        );
+        // If it is currently loading posts, return a string value of loading. 
+        if (this.props.loading === true) {
+            return (<div className="loader">...LOADING</div>);
+        } else {
+            // If its done loading the posts, simple return the Child components (Photo & Comments).
+            return (
+                <div className="single-photo">
+                    <Photo post={post} {...this.props} index={index} />
+                    <Comments startAddingComment={this.props.startAddingComment} comments={comments} id={id} />
+                    {/* <Comments addComment={this.props.addComment} comments={comments} id={id}/> */}
+                </div>
+            );
+        }
     }
 }
 

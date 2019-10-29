@@ -9,6 +9,11 @@ import Single from './Single';
 // Main component as a top level component to render its subcomponents.
 class Main extends Component {
 
+  // Initialise a state of loader.
+  state = {
+    loading: true
+  };
+
   // Initialise a constructor to initialise initial state. (of posts list).
   constructor() {
     super();
@@ -43,12 +48,22 @@ class Main extends Component {
   componentDidMount() {
     console.log('componentDidMount');
 
-    // Fetch data posts from firebase by invoking the action method.
-    // Load all existing posts.
-    this.props.startLoadingPost(); 
+    /* 
+      Fetch data posts from firebase by invoking the action method.
+      Load all existing posts upon completion of mounting component.
+      After done loding the posts, change the local component state (loading).
+      This indicates the loading of posts is done. Hence render the UI components.
+    */
+    this.props.startLoadingPost().then(() => {
+      this.setState({
+        loading: false
+      });
+    });
 
-    // Fetch data posts from firebase by invoking the action method.
-    // Load all existing comments.
+    /* 
+      Fetch data posts from firebase by invoking the action method.
+      Load all existing comments.   
+    */
     this.props.startLoadingComments();
   }
 
@@ -104,7 +119,7 @@ class Main extends Component {
 
         {/* Add Route component that passes in render as props to invoke Single Photo UI component. */}
         <Route path="/single/:id" render={(params) => (
-          <Single {...this.props} {...params}/>
+          <Single loading={this.state.loading} {...this.props} {...params}/>
         )}/>
 
       </div>
