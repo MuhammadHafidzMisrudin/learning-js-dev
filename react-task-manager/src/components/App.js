@@ -2,8 +2,8 @@ import React from 'react';
 
 const App = () => {
     return (
-        <div>Hello</div>
+        <div>App Task Manager</div>
     );
-}
+};
 
 export default App;
