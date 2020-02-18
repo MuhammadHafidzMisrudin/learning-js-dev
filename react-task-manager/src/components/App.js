@@ -10,7 +10,7 @@ const App = () => {
             <div className="container">
                 <div className="app-wrapper">
                     <div className="main">
-                        {/* Invoke TaskList component */}
+                        {/* Invoke TaskList component. */}
                         <TaskList />
                     </div>
                 </div>

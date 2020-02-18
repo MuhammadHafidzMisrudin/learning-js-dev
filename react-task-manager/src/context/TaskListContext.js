@@ -10,14 +10,14 @@ const TaskListContextProvider = (props) => {
     // Use array destructuring to set variable (array of objects) and function.
     // State function of setTasks is to update the data state.
     const [tasks, setTasks] = useState([
-        { task: "Text and call Inma", id: 1 },
-        { task: "Write code", id: 2 },
-        { task: "Make dinner for Inma", id: 3 }
+        { taskTitle: "Text and call Inma", id: 1 },
+        { taskTitle: "Write code", id: 2 },
+        { taskTitle: "Make dinner for Inma", id: 3 }
     ]);
 
     return (
         // Create a context provider to share the state across all components.
-        // Property of value contains the data from state (tasks).
+        // Value property assigned contains the data from state (tasks).
         // Props.children refers to all components which will be wrapped by the context provider.
         <TaskListContext.Provider value={{tasks}}>
             {props.children}

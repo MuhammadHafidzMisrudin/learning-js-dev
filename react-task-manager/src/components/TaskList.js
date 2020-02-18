@@ -12,9 +12,11 @@ const TaskList = () => {
     return (
         <div>
             <ul className="list">
-                {/* Mapping through the array of state */}
+                {/* Mapping through the array of state. */}
                 {tasks.map((task) => {
-                    return <Task />;
+                    // Assign task property to task item component.
+                    // Assign key property to id of task item component.
+                    return <Task task={task} key={task.id} />;
                 })}
             </ul>
         </div>

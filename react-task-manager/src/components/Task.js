@@ -2,10 +2,12 @@ import React from 'react';
 
 // Create a Task functional component.
 // It display the Task form.
-const Task = () => {
+const Task = ({task}) => {
+    // Use destructuring using task to get access to the task item.
+    // Or pass "props" as an argument. And add "props.task.taskTitle" as {props.task.taskTitle} in the element.
     return (
         <li className="list-item">
-            <span>Task Title</span>
+            <span>{task.taskTitle}</span>
             <div>
                 <button className="btn-delete task-btn">
                     <i className="fas fa-trash-alt"></i>
