@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { TaskListContext } from "../context/TaskListContext";
+import Task from "./Task";
 
 // Create a Task List functional component.
 const TaskList = () => {
@@ -11,7 +12,10 @@ const TaskList = () => {
     return (
         <div>
             <ul className="list">
-                {tasks.map((task) => {})}
+                {/* Mapping through the array of state */}
+                {tasks.map((task) => {
+                    return <Task />;
+                })}
             </ul>
         </div>
     );

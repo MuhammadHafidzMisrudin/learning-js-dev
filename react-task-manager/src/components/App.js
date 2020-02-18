@@ -1,9 +1,13 @@
 import React from 'react';
+import TaskList from "./TaskList";
 import '../App.css';
 
 const App = () => {
     return (
-        <div>App Task Manager</div>
+        <div>
+            {/* Invoke TaskList component */}
+            <TaskList />
+        </div>
     );
 };
 
