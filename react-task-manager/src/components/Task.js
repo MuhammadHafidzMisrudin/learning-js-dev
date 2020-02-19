@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Create a Task functional component.
-// It display the Task form.
+// It display the list of Task item form.
 const Task = ({task}) => {
     // Use destructuring using task to get access to the task item.
     // Or pass "props" as an argument. And add "props.task.taskTitle" as {props.task.taskTitle} in the element.

@@ -9,6 +9,7 @@ const TaskListContextProvider = (props) => {
     // Use hook. It declares a task “state variable” of an array as initial value.
     // Use array destructuring to set variable (array of objects) and function.
     // State function of setTasks is to update the data state.
+    // eslint-disable-next-line
     const [tasks, setTasks] = useState([
         { taskTitle: "Text and call Inma", id: 1 },
         { taskTitle: "Write code", id: 2 },

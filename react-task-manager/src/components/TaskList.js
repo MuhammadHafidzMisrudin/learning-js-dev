@@ -3,6 +3,7 @@ import { TaskListContext } from "../context/TaskListContext";
 import Task from "./Task";
 
 // Create a Task List functional component.
+// Parent component for Task component.
 const TaskList = () => {
 
     // Use useContext hook to call the context.
