@@ -2,7 +2,9 @@ import React from "react";
 
 const Header = () => {
     return (
-        <div></div>
+        <div className="header">
+            <h1>Task Manager App</h1>
+        </div>
     );
 };
 
