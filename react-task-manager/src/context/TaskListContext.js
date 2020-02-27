@@ -1,5 +1,5 @@
 import React, { createContext, useState } from "react";
-import * as uuid from "uuid";
+import { v4 as uuidv4 } from 'uuid';
 
 // Initialise and create the context.
 export const TaskListContext = createContext();
@@ -18,7 +18,7 @@ const TaskListContextProvider = (props) => {
 
     // This function to update the state and a new task item.
     const addTask = (title) => {
-        setTasks([...tasks, { taskTitle: title, id: uuid() }]);
+        setTasks([...tasks, { taskTitle: title, id: uuidv4() }]);
     };
 
     return (

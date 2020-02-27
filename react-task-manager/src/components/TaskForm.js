@@ -11,24 +11,27 @@ const TaskForm = () => {
     const { addTask } = useContext(TaskListContext);
 
     // Use useState hook to create a state to store the current value of the title of the task.
-    // Use destructuring with 2 values; title and setTitle function.
-    const [title, setTitle] = useState('');
+    // Use destructuring with 2 values; title state and setTitle function.
+    const [curretTitle, setTitle] = useState('');
 
     // This function to grab the value from the input field.
-    // Once typing event occurs, it stores value in the title.
+    // Once typing event occurs, it stores value in the title state.
     const handleChange = (e) => {
         setTitle(e.target.value);
-        console.log(title);
+        console.log(curretTitle);
     };
 
     // This function to handle submit event.
+    // Add the task item to the list by calling addTask function.
+    // Task will be added to the list field when button is clicked.
     const handleSubmit = (e) => {
         e.preventDefault(); // Prevent the default action of submitting the form.
+        addTask(curretTitle); // Add the task to the list.
     };
 
     return (
         <form onSubmit={handleSubmit} action="" className="form">
-            <input onChange={handleChange} type="text" className="task-input" placeholder="Add Task..." required />
+            <input onChange={handleChange} value={curretTitle} type="text" className="task-input" placeholder="Add Task..." required />
             <div className="buttons">
                 <button type="submit" className="btn add-task-btn">Add Task</button>
                 <button className="btn clear-btn">Clear</button>
