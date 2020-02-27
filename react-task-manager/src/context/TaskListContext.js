@@ -7,17 +7,16 @@ export const TaskListContext = createContext();
 // Create a Task List Context Provider functional component.
 const TaskListContextProvider = (props) => {
 
-    // Use hook. It declares a task “state variable” of an array as initial value.
+    // Use hook to declare a task “state variable” of an array as initial value.
     // Use array destructuring to set variable (array of objects) and function.
     // State function of setTasks is to update the data state.
-    // eslint-disable-next-line
     const [tasks, setTasks] = useState([
         { taskTitle: "Text and call Inma", id: 1 },
         { taskTitle: "Write code", id: 2 },
         { taskTitle: "Make dinner for Inma", id: 3 }
     ]);
 
-    // Create an Add Task function to update the state and a new task item.
+    // This function to update the state and a new task item.
     const addTask = (title) => {
         setTasks([...tasks, { taskTitle: title, id: uuid() }]);
     };

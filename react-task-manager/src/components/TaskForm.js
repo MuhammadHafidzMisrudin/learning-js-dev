@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { TaskListContext } from "../context/TaskListContext";
 
 // Create a Task Form functional component.
@@ -6,13 +6,29 @@ import { TaskListContext } from "../context/TaskListContext";
 // This is to add the data of tasks into task list and to clear tasks off.
 const TaskForm = () => {
 
-    // Use useContext hook to call the context
+    // Use useContext hook to call the context.
     // Use destructuring to get access to addTask function.
     const { addTask } = useContext(TaskListContext);
 
+    // Use useState hook to create a state to store the current value of the title of the task.
+    // Use destructuring with 2 values; title and setTitle function.
+    const [title, setTitle] = useState('');
+
+    // This function to grab the value from the input field.
+    // Once typing event occurs, it stores value in the title.
+    const handleChange = (e) => {
+        setTitle(e.target.value);
+        console.log(title);
+    };
+
+    // This function to handle submit event.
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Prevent the default action of submitting the form.
+    };
+
     return (
-        <form action="" className="form">
-            <input type="text" className="task-input" placeholder="Add Task..." required />
+        <form onSubmit={handleSubmit} action="" className="form">
+            <input onChange={handleChange} type="text" className="task-input" placeholder="Add Task..." required />
             <div className="buttons">
                 <button type="submit" className="btn add-task-btn">Add Task</button>
                 <button className="btn clear-btn">Clear</button>
