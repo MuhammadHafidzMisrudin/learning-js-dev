@@ -8,7 +8,7 @@ export const TaskListContext = createContext();
 const TaskListContextProvider = (props) => {
 
     // Use hook to declare a task “state variable” of an array as initial value.
-    // Use array destructuring to set variable (array of objects) and function.
+    // Use array destructuring to set variable of tasks (array of objects) and function.
     // State function of setTasks is to update the data state.
     const [tasks, setTasks] = useState([
         { taskTitle: "Text and call Inma", id: 1 },
