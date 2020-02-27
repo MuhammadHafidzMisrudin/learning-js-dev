@@ -15,7 +15,7 @@ const TaskForm = () => {
     const [curretTitle, setTitle] = useState('');
 
     // This function to grab the value from the input field.
-    // Once typing event occurs, it stores value in the title state.
+    // Once typing event occurs, it stores value in the current title state.
     const handleChange = (e) => {
         setTitle(e.target.value);
         console.log(curretTitle);
@@ -26,7 +26,8 @@ const TaskForm = () => {
     // Task will be added to the list field when button is clicked.
     const handleSubmit = (e) => {
         e.preventDefault(); // Prevent the default action of submitting the form.
-        addTask(curretTitle); // Add the task to the list.
+        addTask(curretTitle); // Call addTask function to add the task to the list.
+        setTitle(""); // Clear the input field after submitting button.
     };
 
     return (
