@@ -7,8 +7,8 @@ import { TaskListContext } from "../context/TaskListContext";
 const TaskForm = () => {
 
     // Use useContext hook to call the context.
-    // Use destructuring to get access to addTask function.
-    const { addTask } = useContext(TaskListContext);
+    // Use destructuring to get access to functions from TaskListContext component.
+    const { addTask, clearList } = useContext(TaskListContext);
 
     // Use useState hook to create a state to store the current value of the title of the task.
     // Use destructuring with 2 values; title state and setTitle function.
@@ -36,7 +36,7 @@ const TaskForm = () => {
             <input onChange={handleChange} value={curretTitle} type="text" className="task-input" placeholder="Add Task..." required />
             <div className="buttons">
                 <button type="submit" className="btn add-task-btn">Add Task</button>
-                <button className="btn clear-btn">Clear</button>
+                <button onClick={() => clearList()} className="btn clear-btn">Clear</button>
             </div>
         </form>
     );

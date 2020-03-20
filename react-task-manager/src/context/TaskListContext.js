@@ -34,12 +34,18 @@ const TaskListContextProvider = (props) => {
         setTasks(tasks.filter((task) => task.id !== id));
     };
 
+    // This function to clear out all task items in the list.
+    const clearList = () => {
+        // Set it to an empty array. The state will be empty.
+        setTasks([]);
+    };
+
     return (
         // Create a context provider to share the state across all components.
         // Value property assigned contains the data from state (tasks) and functions.
-        // Pass functions (addTask, removeTask) to the provider in order to be used in other components.
+        // Pass functions (addTask, removeTask, clearList) to the provider in order to be used in other components.
         // Props.children refers to all components which will be wrapped by the context provider. 
-        <TaskListContext.Provider value={{ tasks, addTask, removeTask }}>
+        <TaskListContext.Provider value={{ tasks, addTask, removeTask, clearList }}>
             {props.children}
         </TaskListContext.Provider>
     );
