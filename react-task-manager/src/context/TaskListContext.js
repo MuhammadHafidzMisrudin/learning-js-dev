@@ -17,19 +17,29 @@ const TaskListContextProvider = (props) => {
     ]);
 
     // This function to update the state and a new task item.
-    // Add a new task item to the list when function is invoked.
+    // Add a new task item to the list when the setTasks function gets invoked.
     // Assign id prop to random UUID via installed package.
     // UUID is to generate unique id for the object of a new task item.
     const addTask = (title) => {
         setTasks([...tasks, { taskTitle: title, id: uuidv4() }]);
     };
 
+    // This function to update the current state and to delete the existing added task item in the list.
+    const removeTask = (id) => {
+        // The condition shows the filter method to keep the task item in the array or filter it out.
+        // If the condition is true, the id of the current item is not equal to the target actual id.
+        // Hence, the task item will be kept in the array.
+        // Otherwise, if it is false, the current task will be filtered out.
+        // Hence, it produces a new array with deleted task item.
+        setTasks(tasks.filter((task) => task.id !== id));
+    };
+
     return (
         // Create a context provider to share the state across all components.
         // Value property assigned contains the data from state (tasks) and functions.
-        // Pass addTask function to the provider in order to use it in other components.
+        // Pass functions (addTask, removeTask) to the provider in order to be used in other components.
         // Props.children refers to all components which will be wrapped by the context provider. 
-        <TaskListContext.Provider value={{ tasks, addTask }}>
+        <TaskListContext.Provider value={{ tasks, addTask, removeTask }}>
             {props.children}
         </TaskListContext.Provider>
     );
