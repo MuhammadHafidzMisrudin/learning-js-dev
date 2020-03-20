@@ -19,6 +19,7 @@ const TaskListContextProvider = (props) => {
     // This function to update the state and a new task item.
     // Add a new task item to the list when function is invoked.
     // Assign id prop to random UUID via installed package.
+    // UUID is to generate unique id for the object of a new task item.
     const addTask = (title) => {
         setTasks([...tasks, { taskTitle: title, id: uuidv4() }]);
     };
