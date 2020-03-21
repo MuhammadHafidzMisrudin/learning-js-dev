@@ -56,12 +56,26 @@ const TaskListContextProvider = (props) => {
         console.log("current editItem: ", editItem);
     };
 
+    // Function for editing.
+    // Pass parameters of properties of tasks object.
+    const editTask = (title, id) => {
+        // Use map to loop through the list.
+        // Check if current task item with id is equal to target item with its id.
+        // If return true, then returns a new object with new properties' values.
+        // Otherwise, if false, returns the current task item.
+        const newTask = tasks.map((task) => { return (task.id === id) ? {title,id} : task});
+
+        // Update the state with a new edited item.
+        setTasks(newTask);
+    };
+
     return (
         // Create a context provider to share the state across all components.
         // Value property assigned contains the data from state (tasks) and functions.
         // Pass functions (addTask, removeTask, clearList, findItem) to the provider in order to be used in other components.
+        // Pass the state of editItem for access from other component.
         // Props.children refers to all components which will be wrapped by the context provider. 
-        <TaskListContext.Provider value={{ tasks, addTask, removeTask, clearList, findItem }}>
+        <TaskListContext.Provider value={{tasks, addTask, removeTask, clearList, findItem, editTask, editItem}}>
             {props.children}
         </TaskListContext.Provider>
     );
