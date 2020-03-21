@@ -13,7 +13,9 @@ const TaskList = () => {
 
     return (
         <div>
-            <ul className="list">
+            {/* Use conditional rendering with ternary operator to display list or no list */}
+            {tasks.length > 0 ? (
+                <ul className="list">
                 {/* Mapping through the array of state. */}
                 {tasks.map((task) => {
                     // Assign task property to task item component.
@@ -21,6 +23,7 @@ const TaskList = () => {
                     return <Task task={task} key={task.id} />;
                 })}
             </ul>
+            ) : (<div className="no-tasks">No Tasks Here</div>)}
         </div>
     );
 };
