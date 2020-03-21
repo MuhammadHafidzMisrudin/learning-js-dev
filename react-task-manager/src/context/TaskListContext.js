@@ -17,6 +17,7 @@ const TaskListContextProvider = (props) => {
     ]);
 
     // State to store editable tasks.
+    // Variable state of editItem is similar to the state to tasks.
     // Use array destructuring to set the state of editItem to null.
     const [editItem, setEditItem] = useState(null); 
 
@@ -45,15 +46,18 @@ const TaskListContextProvider = (props) => {
     };
 
     // This function to find an item that is needed to update.
+    // Update the state, make it into state for editable item.
     // Pass a parameter of id.
     const findItem = (id) => {
         // Set an item to value that finds a target task item using its id.
         const item = tasks.find((task) => task.id === id);
-        console.log(item);
+        console.log("log-from-finditem-before-update: ", item);
 
         // Update the state and make the item editable.
+        // The state of tasks is updated and it is made into the state of editItem
         setEditItem(item);
-        console.log("current editItem: ", editItem);
+        console.log("log-from-finditem-after-update: ", item);
+        console.log("log-from-finditem-new-state-edititem: ", editItem);
     };
 
     // Function for editing.
@@ -63,10 +67,16 @@ const TaskListContextProvider = (props) => {
         // Check if current task item with id is equal to target item with its id.
         // If return true, then returns a new object with new properties' values.
         // Otherwise, if false, returns the current task item.
-        const newTask = tasks.map((task) => { return (task.id === id) ? {title,id} : task});
+        const newTasks = tasks.map((task) => {return task.id === id ? {taskTitle: title, id: id} : task});
+        console.log("log-from-edittask-newtasks: ", newTasks);
 
         // Update the state with a new edited item.
-        setTasks(newTask);
+        setTasks(newTasks);
+        console.log("log-from-edittask-newtasks-after-edited: ", newTasks);
+        console.log("log-from-edittask-tasks-after-edited: ", tasks);
+
+        // Clear out input field after edit and reset editItem to null for a next new task item.
+        setEditItem(null);
     };
 
     return (
