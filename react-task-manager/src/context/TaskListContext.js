@@ -16,6 +16,10 @@ const TaskListContextProvider = (props) => {
         { taskTitle: "Make dinner for Inma", id: 3 }
     ]);
 
+    // State to store editable tasks.
+    // Use array destructuring to set the state of editItem to null.
+    const [editItem, setEditItem] = useState(null); 
+
     // This function to update the state and a new task item.
     // Add a new task item to the list when the setTasks function gets invoked.
     // Assign id prop to random UUID via installed package.
@@ -40,12 +44,24 @@ const TaskListContextProvider = (props) => {
         setTasks([]);
     };
 
+    // This function to find an item that is needed to update.
+    // Pass a parameter of id.
+    const findItem = (id) => {
+        // Set an item to value that finds a target task item using its id.
+        const item = tasks.find((task) => task.id === id);
+        console.log(item);
+
+        // Update the state and make the item editable.
+        setEditItem(item);
+        console.log("current editItem: ", editItem);
+    };
+
     return (
         // Create a context provider to share the state across all components.
         // Value property assigned contains the data from state (tasks) and functions.
-        // Pass functions (addTask, removeTask, clearList) to the provider in order to be used in other components.
+        // Pass functions (addTask, removeTask, clearList, findItem) to the provider in order to be used in other components.
         // Props.children refers to all components which will be wrapped by the context provider. 
-        <TaskListContext.Provider value={{ tasks, addTask, removeTask, clearList }}>
+        <TaskListContext.Provider value={{ tasks, addTask, removeTask, clearList, findItem }}>
             {props.children}
         </TaskListContext.Provider>
     );
