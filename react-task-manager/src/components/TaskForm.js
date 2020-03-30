@@ -12,7 +12,7 @@ const TaskForm = () => {
 
     // Use useState hook to create a state to store the current value of the title of the task.
     // Use destructuring with 2 values; title state and setTitle function.
-    // Set title to empty string for initial value.
+    // Set curretTitle to empty string for initial value.
     const [curretTitle, setTitle] = useState('');
 
     // This function to grab the value from the input field.
