@@ -24,7 +24,7 @@ const TaskForm = () => {
 
     // This function to handle submit event.
     // Add the task item to the list by calling addTask function.
-    // Task will be added to the list field when button is clicked.
+    // Task item will be added to the list field when button is clicked.
     const handleSubmit = (e) => {
         // Prevent the default action of submitting the form.
         e.preventDefault(); 
@@ -62,6 +62,7 @@ const TaskForm = () => {
             <input onChange={handleChange} value={curretTitle} type="text" className="task-input" placeholder="Add Task..." required />
             <div className="buttons">
                 <button type="submit" className="btn add-task-btn">
+                    {/* Condition to check if task item in the process of editing, change button name. */}
                     {editItem !== null ? "Edit/Save" : "Add Task"}
                 </button>
                 <button onClick={() => clearList()} className="btn clear-btn">Clear</button>

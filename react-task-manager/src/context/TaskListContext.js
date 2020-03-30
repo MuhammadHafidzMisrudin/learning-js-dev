@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid'; // generate unique id.
 
 // Initialise and create the context.
@@ -7,14 +7,28 @@ export const TaskListContext = createContext();
 // Create a Task List Context Provider functional component.
 const TaskListContextProvider = (props) => {
 
+    // Define an initial value of the state to be stored in the local storage browser.
+    // Call getItem function to get data from local storage - pass in a param of collection (tasks).
+    // If there is no data in local storage, then set the initial state as an empty array.
+    // Parse data into JSON format.
+    const initialState = JSON.parse(localStorage.getItem('tasks') || []);
+
     // Use hook to declare a task “state variable” of an array as initial value.
+    // Set tasks state to initialState variable that is defined from local storage.
     // Use array destructuring to set variable of tasks (array of objects) and function.
-    // State function of setTasks is to update the data state.
-    const [tasks, setTasks] = useState([
-        { taskTitle: "Text and call Inma", id: 1 },
-        { taskTitle: "Write code", id: 2 },
-        { taskTitle: "Make dinner for Inma", id: 3 }
-    ]);
+    // State function of setTasks is to update the data (tasks state).
+    const [tasks, setTasks] = useState(initialState);  
+
+    // Take effect after the render is committed to the screen.
+    // Data will be saved in the local storage browser when re-rendered.
+    useEffect(() => {
+        // Use localStorage function to store values.
+        // 1 param - name of collection/array in string.
+        // 2 param - variable of collection/array which is converted into JSON format.
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+
+        // Second argument, to run this hook when tasks array is updated.
+    }, [tasks]);
 
     // State to store editable tasks.
     // Variable state of editItem is similar to the state to tasks.
