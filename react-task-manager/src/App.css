@@ -8,7 +8,7 @@
 }
 
 .container {
-  background: linear-gradient(100deg, rgb(182, 40, 111) 50%, #ac2066 0);
+  background: linear-gradient(100deg, rgb(114, 40, 182) 50%, #20a3ac 0);
   width: 100%;
   height: 100vh;
   display: flex;
@@ -17,19 +17,19 @@
 }
 
 .app-wrapper {
-  background-color: #292f38;
+  background-color: #223535ad; /* background-color: #292f38; */
   width: 25%;
   min-width: 450px;
   height: 600px; /* height:600px; */
   padding: 30px;
   box-sizing: border-box;
   border-radius: 5px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
 }
 
 .header h1 {
   color: #ccc;
-  font-weight: 300;
+  font-weight: 800; /* font-weight: 300; */
   text-align: center;
   margin: 50px 20px 60px 20px;
   font-family: 'Josefin Slab', serif;
@@ -103,7 +103,7 @@
 .add-task-btn {
   min-width: 100px;
   background-color: #790e43;
-  color: #ccc;
+  color: #fff; /* color: #ccc; */
   border: none;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
@@ -121,7 +121,7 @@
 }
 
 .list-item span {
-  color: #999;
+  color: #eee; /* color: #999; */
 }
 
 .task-btn {
@@ -147,7 +147,7 @@
   width: 100px;
   height: 35px;
   background-color: #790e43;
-  color: #ccc;
+  color: #fff; /* color: #ccc; */
   border: none;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
