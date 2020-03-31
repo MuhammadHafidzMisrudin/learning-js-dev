@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import React, { createContext, useState, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid'; // generate unique id.
 
@@ -11,13 +12,18 @@ const TaskListContextProvider = (props) => {
     // Call getItem function to get data from local storage - pass in a param of collection (tasks).
     // If there is no data in local storage, then set the initial state as an empty array.
     // Parse data into JSON format.
-    const initialState = JSON.parse(localStorage.getItem('tasks') || []);
+    // const initialState = JSON.parse(localStorage.getItem('tasks') || []);
 
     // Use hook to declare a task “state variable” of an array as initial value.
     // Set tasks state to initialState variable that is defined from local storage.
     // Use array destructuring to set variable of tasks (array of objects) and function.
     // State function of setTasks is to update the data (tasks state).
-    const [tasks, setTasks] = useState(initialState);  
+    // const [tasks, setTasks] = useState(initialState);
+    const [tasks, setTasks] = useState([
+        { taskTitle: "Text and call Inma", id: 1 },
+        { taskTitle: "Make breakfast", id: 2 },
+        { taskTitle: "Do assignment", id: 3 }
+    ]);
 
     // Take effect after the render is committed to the screen.
     // Data will be saved in the local storage browser when re-rendered.
