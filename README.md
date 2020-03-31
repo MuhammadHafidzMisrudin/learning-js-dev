@@ -10,4 +10,5 @@ Simple web app development using React, Redux and Firebase.
 ## Development Project 2: React Task Manager
 Simple React app, Task Manager using Context API and React Hooks.
 
-* In progress & In development.
+* [Task Manager](https://task-manager-1befc.web.app/) - Link 1.
+* [Task Manager](https://task-manager-1befc.firebaseapp.com/) - Link 2.
