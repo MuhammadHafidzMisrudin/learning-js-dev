@@ -4,7 +4,7 @@ import "./App.css";
 const App = () => {
     return (
         <div className="App">
-            Food Recipe Search App
+            <h1>Food Recipe Search Engine</h1>
         </div>
     );
 };
