@@ -11,7 +11,6 @@ const App = () => {
     const APP_KEY = "77504f161b323b537d85da25b0e8f9ad";
 
     // url search recipe api.
-    // eslint-disable-next-line
     const url = `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`;
 
     // get data from the request via search api call.
