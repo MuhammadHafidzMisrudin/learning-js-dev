@@ -14,10 +14,16 @@ const App = () => {
     const url = `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`;
 
     // get data from the request via search api call.
-    // eslint-disable-next-line
     const getData = async () => {
         const result = await Axios.get(url);
         console.log(result);
+    };
+
+    // function to execute the request from getData after submit the form.
+    const onSubmit = (e) => {
+        alert("Submitted!");
+        e.preventDefault();
+        getData();
     };
 
     return (
@@ -26,7 +32,7 @@ const App = () => {
             <h1>Food Recipe Search Engine</h1>
 
             {/* input form */}
-            <form className="search-form" action="">
+            <form className="search-form" action="" onSubmit={onSubmit}>
                 <input type="text" placeholder="Search Food" autoComplete="off" />
                 <input type="Submit" defaultValue="Search" />
             </form>
