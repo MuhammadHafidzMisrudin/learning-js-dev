@@ -21,14 +21,17 @@ const App = () => {
     // get data from the request via search api call.
     const getData = async () => {
         const result = await Axios.get(url);
-        console.log(result);
+        console.log(result); // debug.
+
+        // set it to empty string to clear off input field.
+        setQuery("");
     };
 
     // function to execute function getData for a request after submit the form.
     const onSubmit = (e) => {
         alert("Submitted!");
         e.preventDefault();
-        getData();
+        getData(); // call api.
     };
 
     // an onChange event handler returns a Synthetic Event object which contains useful meta data 
@@ -46,7 +49,7 @@ const App = () => {
 
             {/* input form */}
             <form className="search-form" action="" onSubmit={onSubmit}>
-                <input type="text" placeholder="Search Food" autoComplete="off" onChange={onChange} />
+                <input type="text" placeholder="Search Food" autoComplete="off" onChange={onChange} value={query} />
                 <input type="Submit" defaultValue="Search" />
             </form>
         </div>
