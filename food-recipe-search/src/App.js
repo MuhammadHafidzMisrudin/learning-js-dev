@@ -1,8 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import Axios from "axios";
 import "./App.css";
 
 const App = () => {
+
+    // initialise a state (query) using hook.
+    // a query to be the data that should be updated.
+    // setQuery should be the method to update the data.
+    const [query, setQuery] = useState("");
 
     // application id.
     const APP_ID = "ba5830c4";
@@ -19,7 +24,7 @@ const App = () => {
         console.log(result);
     };
 
-    // function to execute a rfunction getData for a request after submit the form.
+    // function to execute function getData for a request after submit the form.
     const onSubmit = (e) => {
         alert("Submitted!");
         e.preventDefault();
