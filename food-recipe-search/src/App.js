@@ -19,7 +19,7 @@ const App = () => {
         console.log(result);
     };
 
-    // function to execute the request from getData after submit the form.
+    // function to execute a rfunction getData for a request after submit the form.
     const onSubmit = (e) => {
         alert("Submitted!");
         e.preventDefault();
