@@ -27,7 +27,7 @@ const App = () => {
         const result = await Axios.get(url);
         console.log(result); // debug.
 
-        // get access to recipes array and update the value of recipes in state.
+        // get access to recipes array and update the value of recipes in the state.
         setRecipes(result.data.hits);
 
         // set it to empty string to clear off input field.
@@ -59,6 +59,15 @@ const App = () => {
                 <input type="text" placeholder="Search Food" autoComplete="off" onChange={onChange} value={query} />
                 <input type="Submit" defaultValue="Search" />
             </form>
+
+            {/* display the results from the request */}
+            <div className="recipes">
+                {recipes !== [] &&
+                    recipes.map((recipe) => {
+                        return (<h2>{recipe.recipe.label}</h2>);
+                    })
+                }
+            </div>
         </div>
     );
 };
