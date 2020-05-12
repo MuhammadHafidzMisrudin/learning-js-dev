@@ -11,6 +11,7 @@ const App = () => {
 
     //  initialise a state (recipes) initially using hook.
     // a recipes state to be the data that should be updated with array.
+    // setRecipes should be the method to update the data state.
     const [recipes, setRecipes] = useState([]);
 
     // application id.
@@ -51,16 +52,16 @@ const App = () => {
 
     return (
         <div className="App">
-            {/* heading */}
+            {/* heading. */}
             <h1>Food Recipe Search Engine</h1>
 
-            {/* input form */}
+            {/* input form. */}
             <form className="search-form" action="" onSubmit={onSubmit}>
                 <input type="text" placeholder="Search Food" autoComplete="off" onChange={onChange} value={query} />
                 <input type="Submit" defaultValue="Search" />
             </form>
 
-            {/* display the results from the request */}
+            {/* display the data results from the request on the page */}
             <div className="recipes">
                 {recipes !== [] &&
                     recipes.map((recipe) => {
