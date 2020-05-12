@@ -5,10 +5,12 @@ import "./App.css";
 const App = () => {
 
     // initialise a state (query) initially using hook.
-    // a query to be the data that should be updated.
+    // a query state to be the data that should be updated.
     // setQuery should be the method to update the data state.
     const [query, setQuery] = useState("");
 
+    //  initialise a state (recipes) initially using hook.
+    // a recipes state to be the data that should be updated with array.
     const [recipes, setRecipes] = useState([]);
 
     // application id.
