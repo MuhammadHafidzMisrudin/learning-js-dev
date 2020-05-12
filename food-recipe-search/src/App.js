@@ -9,6 +9,8 @@ const App = () => {
     // setQuery should be the method to update the data state.
     const [query, setQuery] = useState("");
 
+    const [recipes, setRecipes] = useState([]);
+
     // application id.
     const APP_ID = "ba5830c4";
 
