@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Axios from "axios";
 import "./App.css";
+import Recipe from "./components/Recipe";
 
 const App = () => {
 
