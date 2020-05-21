@@ -66,7 +66,7 @@ const App = () => {
             <div className="recipes">
                 {recipes !== [] &&
                     recipes.map((recipe) => {
-                        return (<h2>{recipe.recipe.label}</h2>);
+                        return (<Recipe recipe={recipe} />);
                     })
                 }
             </div>
