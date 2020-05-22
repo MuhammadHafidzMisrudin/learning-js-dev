@@ -44,7 +44,7 @@ const App = () => {
         getData(); // call api.
     };
 
-    // an onChange event handler returns a Synthetic Event object which contains useful meta data 
+    // an onChange event handler returns a synthetic event object which contains useful meta data 
     // such as the target input’s id, name, and current value.
     // to access the target input’s value => e.target.value.
     const onChange = (e) => {
@@ -68,6 +68,7 @@ const App = () => {
                 {recipes !== [] &&
                     recipes.map((recipe) => {
                         console.log(uuidv4());
+                        // invoke Recipe component.
                         return (<Recipe key={uuidv4()} recipe={recipe} />);
                     })
                 }
