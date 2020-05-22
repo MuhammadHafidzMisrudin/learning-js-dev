@@ -33,6 +33,7 @@ const App = () => {
         // get access to recipes array and update the value of recipes in the state.
         // from json data => data.hits.recipe
         setRecipes(result.data.hits);
+        console.log("from-getdata-display-hits: ", result.data.hits); // debugger.
 
         // set it to empty string to clear off input field.
         setQuery("");
@@ -68,7 +69,9 @@ const App = () => {
             <div className="recipes">
                 {recipes !== [] &&
                     recipes.map((recipe) => {
-                        console.log(uuidv4());
+                        // console.log(uuidv4());
+                        console.log("from-render-display-recipe-props: ",recipe.recipe); // debugger.
+
                         // invoke Recipe component.
                         return (<Recipe key={uuidv4()} recipe={recipe} />);
                     })
