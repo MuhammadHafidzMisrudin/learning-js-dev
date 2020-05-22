@@ -12,7 +12,8 @@ const Recipe = ({recipe}) => {
             <img src={image} alt={label} />
             <a href={url} target="_blank" rel="noopener noreferrer">URL</a>
             <button>Ingredients</button>
-        </div>);
+        </div>
+    );
 };
 
 export default Recipe;
