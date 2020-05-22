@@ -31,6 +31,7 @@ const App = () => {
         console.log(result); // debug.
 
         // get access to recipes array and update the value of recipes in the state.
+        // from json data => data.hits.recipe
         setRecipes(result.data.hits);
 
         // set it to empty string to clear off input field.
