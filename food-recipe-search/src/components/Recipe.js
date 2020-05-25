@@ -5,7 +5,6 @@ import RecipeDetails from "./RecipeDetails";
 const Recipe = ({recipe}) => {
 
     // use destructuring to access the properties from recipe object.
-    // eslint-disable-next-line
     const {label, image, url, ingredients} = recipe.recipe;
 
     return (
@@ -14,7 +13,7 @@ const Recipe = ({recipe}) => {
             <img src={image} alt={label} />
             <a href={url} target="_blank" rel="noopener noreferrer">URL link!</a>
             <button>Ingredients</button>
-            <RecipeDetails />
+            <RecipeDetails ingredients={ingredients} />
         </div>
     );
 };
