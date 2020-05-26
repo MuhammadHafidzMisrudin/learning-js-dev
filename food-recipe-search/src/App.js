@@ -4,6 +4,13 @@ import {v4 as uuidv4} from "uuid";
 import "./App.css";
 import Recipe from "./components/Recipe";
 
+/* 
+    Author: Muhammad Hafidz Misrudin
+    Description: Proprietary (no permission for copy or use or redistribution)
+    Date written: 04/05/2020
+    Date last updated: 22/05/2020
+*/
+
 const App = () => {
 
     // initialise a state (query) initially using hook.
