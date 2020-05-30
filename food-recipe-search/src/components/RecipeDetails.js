@@ -1,6 +1,13 @@
 import React from "react";
 import {v4 as uuidv4} from "uuid";
 
+/* 
+    Author: Muhammad Hafidz Misrudin
+    Description: Proprietary (no permission for copy or use or redistribution)
+    Date written: 25/05/2020
+    Date last updated: 30/05/2020
+*/
+
 // functional component to display the details of the Recipe data.
 const RecipeDetails = ({ingredients}) => {
 
