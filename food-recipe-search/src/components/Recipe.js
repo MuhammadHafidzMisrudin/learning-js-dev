@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState}  from "react";
 import RecipeDetails from "./RecipeDetails";
 
 /* 
@@ -11,6 +11,10 @@ import RecipeDetails from "./RecipeDetails";
 // functional component to display a Recipe data from request.
 const Recipe = ({recipe}) => {
 
+    // state as a boolean for toggle.
+    const [show, setShow] = useState(false);
+
+    // pass recipe object as prop.
     // use destructuring to access the properties from recipe object.
     const {label, image, url, ingredients} = recipe.recipe;
 
@@ -20,6 +24,8 @@ const Recipe = ({recipe}) => {
             <img src={image} alt={label} />
             <a href={url} target="_blank" rel="noopener noreferrer">URL link!</a>
             <button>Ingredients</button>
+
+            {/* invoke Recipe Details component. */}
             <RecipeDetails ingredients={ingredients} />
         </div>
     );
