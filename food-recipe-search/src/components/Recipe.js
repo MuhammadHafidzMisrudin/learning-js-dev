@@ -5,7 +5,7 @@ import RecipeDetails from "./RecipeDetails";
     Author: Muhammad Hafidz Misrudin
     Description: Proprietary (no permission for copy or use or redistribution)
     Date written: 20/05/2020
-    Date last updated: 31/05/2020
+    Date last updated: 02/06/2020
 */
 
 // functional component to display a Recipe data from request.
