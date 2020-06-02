@@ -3,6 +3,8 @@ import Axios from "axios";
 import {v4 as uuidv4} from "uuid";
 import "./App.css";
 import Recipe from "./components/Recipe";
+import Alert from "./components/Alert";
+
 
 /* 
     Author: Muhammad Hafidz Misrudin
@@ -68,6 +70,7 @@ const App = () => {
 
             {/* input form. */}
             <form className="search-form" action="" onSubmit={onSubmit}>
+                <Alert />
                 <input type="text" placeholder="Search Food" autoComplete="off" onChange={onChange} value={query} />
                 <input type="Submit" defaultValue="Search" />
             </form>
@@ -77,7 +80,7 @@ const App = () => {
                 {recipes !== [] &&
                     recipes.map((recipe) => {
                         // console.log(uuidv4());
-                        console.log("from-render-display-recipe-props: ",recipe.recipe); // debugger.
+                        console.log("from-render-display-recipe-props: ", recipe.recipe); // debugger.
 
                         // invoke Recipe component.
                         return (<Recipe key={uuidv4()} recipe={recipe} />);
