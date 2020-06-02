@@ -26,7 +26,7 @@ const Recipe = ({recipe}) => {
             <button onClick={() => setShow(!show)}>Ingredients</button>
 
             {/* invoke Recipe Details component. */}
-            {/* check if show status is true then display recipe data. */}
+            {/* use conditional rendering check if show status is true then display recipe details. */}
             {show === true && <RecipeDetails ingredients={ingredients} />}
         </div>
     );
