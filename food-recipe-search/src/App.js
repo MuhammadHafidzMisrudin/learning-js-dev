@@ -39,16 +39,24 @@ const App = () => {
 
     // get data from the request via search api call.
     const getData = async () => {
-        const result = await Axios.get(url);
-        console.log(result); // debug.
 
-        // get access to recipes array and update the value of recipes in the state.
-        // from json data => data.hits.recipe
-        setRecipes(result.data.hits);
-        console.log("from-getdata-display-hits: ", result.data.hits); // debugger.
-
-        // set it to empty string to clear off input field.
-        setQuery("");
+        // check if the query is not equal to empty string.
+        if (query !== "") {
+            const result = await Axios.get(url);
+            console.log(result); // debug.
+    
+            // get access to recipes array and update the value of recipes in the state.
+            // from json data => data.hits.recipe
+            setRecipes(result.data.hits);
+            console.log("from-getdata-display-hits: ", result.data.hits); // debugger.
+    
+            // set it to empty string to clear off input field.
+            setQuery(""); 
+        } else {
+            // otherwise, its an empty string.
+            // set an alert string.
+            setAlert("PLEASE INSET INPUT IN THE SEARCH FORM");
+        }
     };
 
     // function to execute function getData for a request after submit the form.
@@ -73,12 +81,15 @@ const App = () => {
 
             {/* input form. */}
             <form className="search-form" action="" onSubmit={onSubmit}>
-                <Alert />
+
+                {/* if alert value is not empty then invoke and displat Alert component. */}
+                {alert !== "" && <Alert alert={alert} />}
+
                 <input type="text" placeholder="Search Food" autoComplete="off" onChange={onChange} value={query} />
                 <input type="Submit" defaultValue="Search" />
             </form>
 
-            {/* display the data results from the request on the page */}
+            {/* display the data results from the request on the page. */}
             <div className="recipes">
                 {recipes !== [] &&
                     recipes.map((recipe) => {
