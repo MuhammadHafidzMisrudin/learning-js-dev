@@ -83,7 +83,8 @@ const App = () => {
             <form className="search-form" action="" onSubmit={onSubmit}>
 
                 {/* if alert value is not empty then invoke and displat Alert component. */}
-                {alert !== "" && <Alert alert={alert} />}
+                {alert === "" && <Alert alert={alert} />}
+                {/* <Alert alert={alert} /> */}
 
                 <input type="text" placeholder="Search Food" autoComplete="off" onChange={onChange} value={query} />
                 <input type="Submit" defaultValue="Search" />
