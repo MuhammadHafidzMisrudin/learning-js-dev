@@ -24,6 +24,10 @@ const App = () => {
     // setRecipes should be the method to update the data state.
     const [recipes, setRecipes] = useState([]);
 
+    // initialise a state (alert) initially using hook.
+    // initial state is set to an empty string.
+    const [alert, setAlert] = useState("");
+
     // application id.
     const APP_ID = "ba5830c4";
 
