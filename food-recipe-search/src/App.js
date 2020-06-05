@@ -9,7 +9,7 @@ import Alert from "./components/Alert";
     Author: Muhammad Hafidz Misrudin
     Description: Proprietary (no permission for copy or use or redistribution)
     Date written: 04/05/2020
-    Date last updated: 02/06/2020
+    Date last updated: 04/06/2020
 */
 
 const App = () => {
