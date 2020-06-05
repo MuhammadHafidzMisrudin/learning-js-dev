@@ -26,7 +26,7 @@ const App = () => {
 
     // initialise a state (alert) initially using hook.
     // initial state is set to an empty string.
-    const [alert, setAlert] = useState("");
+    // const [alert, setAlert] = useState("");
 
     // application id.
     const APP_ID = "ba5830c4";
@@ -41,22 +41,26 @@ const App = () => {
     const getData = async () => {
 
         // check if the query is not equal to empty string.
-        if (query !== "") {
-            const result = await Axios.get(url);
-            console.log(result); // debug.
-    
-            // get access to recipes array and update the value of recipes in the state.
-            // from json data => data.hits.recipe
-            setRecipes(result.data.hits);
-            console.log("from-getdata-display-hits: ", result.data.hits); // debugger.
-    
-            // set it to empty string to clear off input field.
-            setQuery(""); 
-        } else {
-            // otherwise, its an empty string.
-            // set an alert string.
-            setAlert("PLEASE INSET INPUT IN THE SEARCH FORM");
-        }
+        // if (query !== "") {
+
+        // } else {
+        //     // otherwise, its an empty string.
+        //     // set an alert string.
+        //     setAlert("PLEASE INSET INPUT IN THE SEARCH FORM");
+        // }
+
+        const result = await Axios.get(url);
+        console.log(result); // debugger.
+
+        // get access to recipes array and update the value of recipes in the state.
+        // from json data => data.hits.recipe
+        setRecipes(result.data.hits);
+
+        // debugger.
+        console.log("from-getdata-display-hits: ", result.data.hits); 
+
+        // set it to empty string to clear off input field.
+        setQuery(""); 
     };
 
     // function to execute function getData for a request after submit the form.
@@ -83,8 +87,8 @@ const App = () => {
             <form className="search-form" action="" onSubmit={onSubmit}>
 
                 {/* if alert value is not empty then invoke and displat Alert component. */}
-                {alert === "" && <Alert alert={alert} />}
-                {/* <Alert alert={alert} /> */}
+                {/* {alert !== "" && <Alert alert={alert} />} */}
+                <Alert />
 
                 <input type="text" placeholder="Search Food" autoComplete="off" onChange={onChange} value={query} />
                 <input type="Submit" defaultValue="Search" />
