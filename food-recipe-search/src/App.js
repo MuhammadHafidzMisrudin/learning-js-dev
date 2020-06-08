@@ -49,15 +49,19 @@ const App = () => {
         //     setAlert("PLEASE INSET INPUT IN THE SEARCH FORM");
         // }
 
-        const result = await Axios.get(url);
-        console.log(result); // debugger.
+        try {
+            const result = await Axios.get(url);
+            console.log(result); // debugger.
 
-        // get access to recipes array and update the value of recipes in the state.
-        // from json data => data.hits.recipe
-        setRecipes(result.data.hits);
+            // get access to recipes array and update the value of recipes in the state.
+            // from json data => data.hits.recipe
+            setRecipes(result.data.hits);
 
-        // debugger.
-        console.log("from-getdata-display-hits: ", result.data.hits); 
+            // debugger.
+            console.log("from-getdata-display-hits: ", result.data.hits);
+        } catch (error) {
+            console.log("error: ", error);
+        }
 
         // set it to empty string to clear off input field.
         setQuery(""); 
