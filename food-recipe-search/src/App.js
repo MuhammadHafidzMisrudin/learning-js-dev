@@ -24,9 +24,9 @@ const App = () => {
     // setRecipes should be the method to update the data state.
     const [recipes, setRecipes] = useState([]);
 
-    // initialise a state (alert) initially using hook.
+    // initialise a state (warning) initially using hook.
     // initial state is set to an empty string.
-    // const [alert, setAlert] = useState("");
+    const [warning, setWarning] = useState("");
 
     // application id.
     const APP_ID = "ba5830c4";
@@ -39,19 +39,23 @@ const App = () => {
 
     // get data from the request via search api call.
     const getData = async () => {
-
-        try {
-            const result = await Axios.get(url);
-            console.log("results-from-request: ", result); // debugger.
-
-            // get access to recipes array and update the value of recipes in the state.
-            // from json data => data.hits.recipe
-            setRecipes(result.data.hits);
-
-            // debugger.
-            console.log("from-getdata-display-hits: ", result.data.hits);
-        } catch (error) {
-            console.log("error: ", error);
+    
+        if (query !== "") {
+            try {
+                const result = await Axios.get(url);
+                console.log("results-from-request: ", result); // debugger.
+    
+                // get access to recipes array and update the value of recipes in the state.
+                // from json data => data.hits.recipe
+                setRecipes(result.data.hits);
+    
+                // debugger.
+                console.log("from-getdata-display-hits: ", result.data.hits);
+            } catch (error) {
+                console.log("error: ", error);
+            }
+        } else {
+            setWarning("Please Insert Input In The Seach Form.");
         }
 
         // set it to empty string to clear off input field.
@@ -81,7 +85,7 @@ const App = () => {
             {/* input form. */}
             <form className="search-form" action="" onSubmit={onSubmit}>
 
-                <Alert />
+                {warning !== "" && <Alert warning={warning} />}
 
                 <input type="text" placeholder="Search Food" autoComplete="off" onChange={onChange} value={query} />
                 <input type="Submit" defaultValue="Search" />
