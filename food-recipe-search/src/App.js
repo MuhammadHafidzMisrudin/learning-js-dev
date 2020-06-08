@@ -9,7 +9,7 @@ import Alert from "./components/Alert";
     Author: Muhammad Hafidz Misrudin
     Description: Proprietary (no permission for copy or use or redistribution)
     Date written: 04/05/2020
-    Date last updated: 04/06/2020
+    Date last updated: 08/06/2020
 */
 
 const App = () => {
@@ -42,7 +42,7 @@ const App = () => {
 
         try {
             const result = await Axios.get(url);
-            console.log(result); // debugger.
+            console.log("results-from-request: ", result); // debugger.
 
             // get access to recipes array and update the value of recipes in the state.
             // from json data => data.hits.recipe
