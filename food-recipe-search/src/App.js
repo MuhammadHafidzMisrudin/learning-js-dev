@@ -40,15 +40,6 @@ const App = () => {
     // get data from the request via search api call.
     const getData = async () => {
 
-        // check if the query is not equal to empty string.
-        // if (query !== "") {
-
-        // } else {
-        //     // otherwise, its an empty string.
-        //     // set an alert string.
-        //     setAlert("PLEASE INSET INPUT IN THE SEARCH FORM");
-        // }
-
         try {
             const result = await Axios.get(url);
             console.log(result); // debugger.
@@ -90,8 +81,6 @@ const App = () => {
             {/* input form. */}
             <form className="search-form" action="" onSubmit={onSubmit}>
 
-                {/* if alert value is not empty then invoke and displat Alert component. */}
-                {/* {alert !== "" && <Alert alert={alert} />} */}
                 <Alert />
 
                 <input type="text" placeholder="Search Food" autoComplete="off" onChange={onChange} value={query} />
