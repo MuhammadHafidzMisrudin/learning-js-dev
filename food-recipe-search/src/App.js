@@ -39,7 +39,8 @@ const App = () => {
 
     // get data from the request via search api call.
     const getData = async () => {
-    
+        
+        // check if the value of query state is not an empty string, hence call api.
         if (query !== "") {
             try {
                 const result = await Axios.get(url);
@@ -55,6 +56,7 @@ const App = () => {
                 console.log("error: ", error);
             }
         } else {
+            // else, set the value of warning state to an error string.
             setWarning("Please Insert Input In The Seach Form.");
         }
 
@@ -85,6 +87,7 @@ const App = () => {
             {/* input form. */}
             <form className="search-form" action="" onSubmit={onSubmit}>
 
+                {/* use conditional rendering. check if the warning value is not empty, hence display Alert component. */}
                 {warning !== "" && <Alert warning={warning} />}
 
                 <input type="text" placeholder="Search Food" autoComplete="off" onChange={onChange} value={query} />
