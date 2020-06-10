@@ -11,7 +11,7 @@ import {v4 as uuidv4} from "uuid";
 // functional component to display the details of the Recipe data.
 const RecipeDetails = ({ingredients}) => {
 
-    // pass ingredients as prop and use destructuring.
+    // pass ingredients object as prop and use destructuring.
     // loop through the property of the ingredients array and grab the data from it.
     return ingredients.map((ingredient) => {
         return (
