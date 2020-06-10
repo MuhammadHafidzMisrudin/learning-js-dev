@@ -45,6 +45,12 @@ const App = () => {
             try {
                 const result = await Axios.get(url);
                 console.log("results-from-request: ", result); // debugger.
+
+                // check if the results return false for food.
+                // display warning message says the food doesnt exist.
+                if (result.data.more === false) {
+                    return setWarning("No Food With Such Name. Try Again.");
+                }
     
                 // get access to recipes array and update the value of recipes in the state.
                 // from json data => data.hits.recipe
@@ -52,6 +58,11 @@ const App = () => {
     
                 // debugger.
                 console.log("from-getdata-display-hits: ", result.data.hits);
+
+                // set warning state to an empty string.
+                // if the food recipe is unavailable, display alert warning message.
+                // if search is valid, remove alert message.
+                setWarning("");
             } catch (error) {
                 console.log("error: ", error);
             }
@@ -60,7 +71,7 @@ const App = () => {
             setWarning("Please Insert Input In The Seach Form.");
         }
 
-        // set it to empty string to clear off input field.
+        // set it to empty string to clear off input field after successful request.
         setQuery(""); 
     };
 
